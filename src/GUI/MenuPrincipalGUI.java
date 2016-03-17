@@ -177,7 +177,7 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSEstatisticasActionPerformed
 
     private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_BtnSairActionPerformed
 
     private void BtnTAmostragemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTAmostragemActionPerformed
