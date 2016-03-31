@@ -276,22 +276,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         BtnGerarFrenquencia.setEnabled(false);
         
         //ACRESCENTA NUMERO DIGITADO CASO VALIDO NA LISTA ListaDeNumeros
-        ListaDeNumeros.add(Double.parseDouble(TextNumero.getText()));
-        
-        //ORDENA ListaDeNumeros
-        Collections.sort(ListaDeNumeros);
-        Collections.sort(ListaDeNumerosXI);
-        
-        /*
-        * VERIFICA SE O NUMERO DIGITADO JÁ EXISTE 
-        * NA ListaDeNumeros2 E CASO NÃO EXISTA 
-        * ACRESCENTA O NUMERO NESTA LISTA
-        */
-       if(!ListaDeNumerosXI.contains(Double.parseDouble(TextNumero.getText()))){
-           ListaDeNumerosXI.add(Double.parseDouble(TextNumero.getText()));
-       }
-       
-       //FUNÇÃO PARA HABILITAR CAMPOS
+        ListaDeNumeros.add(Double.parseDouble(TextNumero.getText()));        
        habilitaCampos(true);
        
        //ADICIONA AS LISTA NO PAINEL DE TEXTO
@@ -342,42 +327,6 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RdDiscretaActionPerformed
 
     private void BtnGerarFrenquenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGerarFrenquenciaActionPerformed
-        
-        int total = ListaDeNumeros.size();
-        
-        
-        //COMPARA NUMEROS DIGITADOS COM SUA FREQUÊNCIA
-        for(int i = 0; i < ListaDeNumerosXI.size(); i++){
-           int count = 0;
-           for(int j = 0; j < ListaDeNumeros.size(); j++){
-               if(ListaDeNumerosXI.get(i).equals(ListaDeNumeros.get(j))){
-                   count++;
-               }
-           }
-           
-           ListaQtdNumerosFI.add(i, count);
-           
-       }
-        
-        //CALCULO DE FR%
-        for(int count = 0; count < ListaQtdNumerosFI.size(); count++){
-            double fr = Math.round((((double)ListaQtdNumerosFI.get(count))*100)/total);
-            ListaQtdNumerosFrPerc.add(count, fr);
-        }
-        
-        //CALCULO DE F
-        soma = 0;
-        for(int count = 0; count < ListaQtdNumerosFI.size(); count++){
-            soma += ListaQtdNumerosFI.get(count);
-            ListaQtdNumerosF.add(count, soma);
-        }
-        
-        //CALCULO DE F%
-        somaperc = 0;
-        for(int count = 0; count < ListaQtdNumerosFrPerc.size(); count++){
-            somaperc += ListaQtdNumerosFrPerc.get(count);
-            ListaQtdNumerosFPerc.add(count, somaperc);
-        }
         
         TextRecebe.setText(TextRecebe.getText() + "\n\n" + 
                 ListaQtdNumerosFI.toString() + "\n\n FR% - " + 
