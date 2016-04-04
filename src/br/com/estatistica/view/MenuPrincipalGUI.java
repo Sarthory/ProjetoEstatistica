@@ -7,14 +7,17 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
     
     SeriesEstatisticasGUI SeriesEstatisticasG;
     TecnicasAmostragemGUI TecnicasAmostragemG;
-    TelaMedidasDeDispersaoGUI MedidasDeDispersaoG;
+    TelaMedidasDeDispersaoDiscretaGUI TelaMedidasDeDispersaoDiscretaG;
+    TelaMedidasDeDispersaoContinuaGUI TelaMedidasDeDispersaoContinuaG;
     
     public MenuPrincipalGUI() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
         SeriesEstatisticasG = new SeriesEstatisticasGUI();
         TecnicasAmostragemG  = new TecnicasAmostragemGUI();
-        MedidasDeDispersaoG= new TelaMedidasDeDispersaoGUI();
+        TelaMedidasDeDispersaoContinuaG= new TelaMedidasDeDispersaoContinuaGUI();
+        TelaMedidasDeDispersaoDiscretaG = new TelaMedidasDeDispersaoDiscretaGUI();
+        
     }
         
     
@@ -32,7 +35,8 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btnMedidasDispersao = new javax.swing.JButton();
+        btnMedidasDispersaoDiscreta = new javax.swing.JButton();
+        btnMedidasDispersaoContinua = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         BtnSair = new javax.swing.JButton();
 
@@ -80,12 +84,21 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel8.setText("Felipe Sartori");
 
-        btnMedidasDispersao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnMedidasDispersao.setText("Medidas de Dispersão");
-        btnMedidasDispersao.setPreferredSize(new java.awt.Dimension(150, 50));
-        btnMedidasDispersao.addActionListener(new java.awt.event.ActionListener() {
+        btnMedidasDispersaoDiscreta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnMedidasDispersaoDiscreta.setText("Medidas de Dispersão ( D )");
+        btnMedidasDispersaoDiscreta.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnMedidasDispersaoDiscreta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMedidasDispersaoActionPerformed(evt);
+                btnMedidasDispersaoDiscretaActionPerformed(evt);
+            }
+        });
+
+        btnMedidasDispersaoContinua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnMedidasDispersaoContinua.setText("Medidas de Dispersão ( C )");
+        btnMedidasDispersaoContinua.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnMedidasDispersaoContinua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMedidasDispersaoContinuaActionPerformed(evt);
             }
         });
 
@@ -107,7 +120,9 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnMedidasDispersao, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMedidasDispersaoDiscreta, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnMedidasDispersaoContinua, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
@@ -134,14 +149,16 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
                         .addComponent(jLabel4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(btnMedidasDispersao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnMedidasDispersaoDiscreta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMedidasDispersaoContinua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(15, 15, 15)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -203,9 +220,13 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
         TecnicasAmostragemG.setVisible(true);
     }//GEN-LAST:event_BtnTAmostragemActionPerformed
 
-    private void btnMedidasDispersaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedidasDispersaoActionPerformed
-        MedidasDeDispersaoG.setVisible(true);
-    }//GEN-LAST:event_btnMedidasDispersaoActionPerformed
+    private void btnMedidasDispersaoDiscretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedidasDispersaoDiscretaActionPerformed
+        TelaMedidasDeDispersaoDiscretaG.setVisible(true);
+    }//GEN-LAST:event_btnMedidasDispersaoDiscretaActionPerformed
+
+    private void btnMedidasDispersaoContinuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedidasDispersaoContinuaActionPerformed
+        TelaMedidasDeDispersaoContinuaG.setVisible(true);
+    }//GEN-LAST:event_btnMedidasDispersaoContinuaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,7 +266,8 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnTAmostragem;
-    private javax.swing.JButton btnMedidasDispersao;
+    private javax.swing.JButton btnMedidasDispersaoContinua;
+    private javax.swing.JButton btnMedidasDispersaoDiscreta;
     private javax.swing.JButton btnSEstatisticas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
