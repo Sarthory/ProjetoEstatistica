@@ -14,11 +14,13 @@ import java.util.List;
 abstract class Tabela {
     
     //DECLARAÇÃO DAS LISTAS QUE SERÃO UTILIZADAS PELAS CLASSES FILHAS ListaContinua E ListaDiscreta
+    private Boolean populacao;
+    private Boolean amostra;    
     private List<Double> listaRol;              //ROL COM OS DADOS A SEREM ANÁLISADOS
     private List<Double> lista_xi;              //LISTA COM OS VALORES DA VARIÁVEL PESQUISADA
-    protected List<Integer> lista_fi;              //LISTA COM A FRENQUÊNCIA SIMPLES DOS VALORES DA VARIÁVEL PESQUISADA
+    protected List<Integer> lista_fi;           //LISTA COM A FRENQUÊNCIA SIMPLES DOS VALORES DA VARIÁVEL PESQUISADA
     private List<Double> lista_frPorcentual;    //LISTA COM A FRENQUÊNCIA RELATIVA PORCENTUAL DOS VALORES DA VARIÁVEL PESQUISADA
-    private List<Integer> lista_F;               //LISTA COM A FRENQUÊNCIA ACUMULADA DOS VALORES DA VARIÁVEL PESQUISADA
+    private List<Integer> lista_F;              //LISTA COM A FRENQUÊNCIA ACUMULADA DOS VALORES DA VARIÁVEL PESQUISADA
     private List<Double> lista_FPorcentual;     //LISTA COM A FRENQUÊNCIA PORCENTUAL ACUMULADA DOS VALORES DA VARIÁVEL PESQUISADA
     private List<Double> lista_xifi;            //LISTA COM O PRODUTO DE xi POR fi
     private List<Double> lista_xixfi;           //LISTA PARA CALCULO DA VARIÂNCIA DE CADA ITEM
@@ -32,9 +34,8 @@ abstract class Tabela {
      *  QUE SERÃO UTILIZADAS NO SISTEMA E ORDENA 
      *  A LISTA DO ROL
      */
-    protected void setLista(List rol){
-        listaRol = rol;
-        Collections.sort(listaRol);
+    protected void setLista(){
+        this.listaRol = new ArrayList<>();
         this.lista_xi = new ArrayList<>();
         this.lista_fi = new ArrayList<>();
         this.lista_frPorcentual = new ArrayList<>();
@@ -45,9 +46,39 @@ abstract class Tabela {
         this.moda = new ArrayList<>();
     }
     
+    //MÉTODO PARA RETORNA VALOR DO ATRIBUTO populacao
+    public Boolean getPopulacao(){
+        return this.populacao;
+    }
+    
+    //MÉTODO PARA SETAR O ATRIBUTO populacao
+    public void setPopulacao(Boolean populacao){
+        this.populacao = populacao;
+    }
+    
+    
+    
+    //MÉTODO PARA RETORNA VALOR DO ATRIBUTO amostra
+    public Boolean getAmostra(){
+        return this.amostra;
+    }
+        
+    //MÉTODO PARA SETAR O ATRIBUTO amostra
+    public void setAmostra(Boolean amostra){
+        this.amostra = amostra;
+    }
+    
+    
+    
      //MÉTODO PARA RETORNAR A LISTA_ROL PARA UTILIZAÇÃO
     public List getLista_Rol(){
         return this.listaRol;
+    }
+    
+    //MÉTODO PARA PREENCHIMENTO DO ROL
+    public void addLista_rol(Double num){
+        listaRol.add(num);
+        Collections.sort(this.listaRol);
     }
     
     
@@ -57,12 +88,12 @@ abstract class Tabela {
         return this.lista_xi;
     }
     
-    /*  
+    /******************************************************  
     *   MÉTODO ABSTRATO DELEGANDO
     *   PARA CADA OBJETO FILHO
     *   A RESPONSABILIDADE DE IMPLEMENTAR O MÉTODO
     *   VISTO QUE PARA CADA LISTA O ALGORITMO É DIFERENTE
-    */
+    *******************************************************/
     public abstract void setLista_xi();
     
     //MÉTODO PARA ADICIONA ITENS NA LISTA_XI PARA UTILIZAÇÃO
@@ -96,7 +127,7 @@ abstract class Tabela {
     public void setLista_frPorcentual(){
         //CALCULO DE FR%
         for(int count = 0; count < this.lista_fi.size(); count++){
-            double fr = Math.round(((this.lista_fi.get(count))*100)/this.listaRol.size());
+            double fr = Math.round(((double)(this.lista_fi.get(count))*100)/(double)this.listaRol.size());
             this.lista_frPorcentual.add(count, fr);
         }
     }

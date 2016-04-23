@@ -15,8 +15,8 @@ public class TabelaContinua extends Tabela{
     private Integer ic;
     
             
-    public TabelaContinua(List lista){
-        super.setLista(lista);
+    public TabelaContinua(){
+        super.setLista();
     }
     
     

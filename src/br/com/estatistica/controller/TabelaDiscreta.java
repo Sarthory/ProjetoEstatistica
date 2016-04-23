@@ -1,7 +1,6 @@
 package br.com.estatistica.controller;
 
 import java.util.Collections;
-import java.util.List;
 
 /**
  *
@@ -11,18 +10,8 @@ import java.util.List;
 public class TabelaDiscreta extends Tabela{
     
     //CONSTRUTOR QUE RECEBE COMO PARAMETRO A LISTA DO ROL
-    public TabelaDiscreta(List lista){
-        super.setLista(lista);
-        this.setLista_xi();
-        this.setLista_fi();
-        super.setLista_frPorcentual();
-        super.setLista_F();
-        super.setLista_FPorcentual();
-        super.setLista_XiFi();
-        super.setMedia();
-        super.setLista_xixfi();
-        this.setModa();
-        this.setMediana();
+    public TabelaDiscreta(){
+        super.setLista();
     }
 
     //ADICIONA DADOS A LISTAXI
@@ -118,6 +107,19 @@ public class TabelaDiscreta extends Tabela{
         
         
         
+    }
+    
+    public void geraDados(){
+        this.setLista_xi();
+        this.setLista_fi();
+        super.setLista_frPorcentual();
+        super.setLista_F();
+        super.setLista_FPorcentual();
+        super.setLista_XiFi();
+        super.setMedia();
+        super.setLista_xixfi();
+        this.setModa();
+        this.setMediana();
     }
     
     
