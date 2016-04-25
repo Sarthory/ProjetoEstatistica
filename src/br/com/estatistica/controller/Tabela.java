@@ -89,12 +89,13 @@ abstract class Tabela {
     }
     
     /******************************************************  
-    *   MÉTODO ABSTRATO DELEGANDO
+    *   MÉTODOS ABSTRATOS DELEGANDO
     *   PARA CADA OBJETO FILHO
     *   A RESPONSABILIDADE DE IMPLEMENTAR O MÉTODO
     *   VISTO QUE PARA CADA LISTA O ALGORITMO É DIFERENTE
     *******************************************************/
     public abstract void setLista_xi();
+    public abstract void geraDados();
     
     //MÉTODO PARA ADICIONA ITENS NA LISTA_XI PARA UTILIZAÇÃO
     public void addLista_xi(Double num){
@@ -252,4 +253,6 @@ abstract class Tabela {
     public Double getMediana(){
         return this.mediana;
     }
+    
+    
 }

@@ -109,6 +109,7 @@ public class TabelaDiscreta extends Tabela{
         
     }
     
+    @Override
     public void geraDados(){
         this.setLista_xi();
         this.setLista_fi();
