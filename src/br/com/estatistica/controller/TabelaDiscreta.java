@@ -121,6 +121,9 @@ public class TabelaDiscreta extends Tabela{
         super.setLista_xixfi();
         this.setModa();
         this.setMediana();
+        super.setVariancia();
+        super.setDesvioPadrao();
+        super.setCoeficienteVariacao();
     }
     
     

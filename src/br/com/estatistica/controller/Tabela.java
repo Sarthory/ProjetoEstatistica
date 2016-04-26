@@ -14,26 +14,45 @@ import java.util.List;
 abstract class Tabela {
     
     //DECLARAÇÃO DAS LISTAS QUE SERÃO UTILIZADAS PELAS CLASSES FILHAS ListaContinua E ListaDiscreta
-    private Boolean populacao;
-    private Boolean amostra;    
-    private List<Double> listaRol;              //ROL COM OS DADOS A SEREM ANÁLISADOS
+    private Boolean populacao = false;
+    private Boolean amostra = true;    
+    protected List<Double> listaRol;              //ROL COM OS DADOS A SEREM ANÁLISADOS
     private List<Double> lista_xi;              //LISTA COM OS VALORES DA VARIÁVEL PESQUISADA
     protected List<Integer> lista_fi;           //LISTA COM A FRENQUÊNCIA SIMPLES DOS VALORES DA VARIÁVEL PESQUISADA
     private List<Double> lista_frPorcentual;    //LISTA COM A FRENQUÊNCIA RELATIVA PORCENTUAL DOS VALORES DA VARIÁVEL PESQUISADA
-    private List<Integer> lista_F;              //LISTA COM A FRENQUÊNCIA ACUMULADA DOS VALORES DA VARIÁVEL PESQUISADA
-    private List<Double> lista_FPorcentual;     //LISTA COM A FRENQUÊNCIA PORCENTUAL ACUMULADA DOS VALORES DA VARIÁVEL PESQUISADA
+    protected List<Integer> lista_F;              //LISTA COM A FRENQUÊNCIA ACUMULADA DOS VALORES DA VARIÁVEL PESQUISADA
+    protected List<Double> lista_FPorcentual;     //LISTA COM A FRENQUÊNCIA PORCENTUAL ACUMULADA DOS VALORES DA VARIÁVEL PESQUISADA
     private List<Double> lista_xifi;            //LISTA COM O PRODUTO DE xi POR fi
     private List<Double> lista_xixfi;           //LISTA PARA CALCULO DA VARIÂNCIA DE CADA ITEM
     private Double media;
     private List<Double> moda;
     protected Double mediana;
+    private Double variancia;
+    private Double desvioPadrao;
+    private Double coeficienteVariacao;
     
     
-     /*
+    
+     
+    
+    /******************************************************  
+    *   MÉTODOS ABSTRATOS DELEGANDO
+    *   PARA CADA OBJETO FILHO
+    *   A RESPONSABILIDADE DE IMPLEMENTAR O MÉTODO
+    *   VISTO QUE PARA CADA LISTA O ALGORITMO É DIFERENTE
+    *******************************************************/
+    public abstract void setLista_xi();
+    public abstract void geraDados();
+    
+    
+    
+    
+    
+     /******************************************************
      *  CRIA TODAS AS LISTAS DO TIPO ARRAYLIST
      *  QUE SERÃO UTILIZADAS NO SISTEMA E ORDENA 
      *  A LISTA DO ROL
-     */
+     *******************************************************/
     protected void setLista(){
         this.listaRol = new ArrayList<>();
         this.lista_xi = new ArrayList<>();
@@ -88,14 +107,7 @@ abstract class Tabela {
         return this.lista_xi;
     }
     
-    /******************************************************  
-    *   MÉTODOS ABSTRATOS DELEGANDO
-    *   PARA CADA OBJETO FILHO
-    *   A RESPONSABILIDADE DE IMPLEMENTAR O MÉTODO
-    *   VISTO QUE PARA CADA LISTA O ALGORITMO É DIFERENTE
-    *******************************************************/
-    public abstract void setLista_xi();
-    public abstract void geraDados();
+    
     
     //MÉTODO PARA ADICIONA ITENS NA LISTA_XI PARA UTILIZAÇÃO
     public void addLista_xi(Double num){
@@ -243,6 +255,61 @@ abstract class Tabela {
             }
         }
     }
+    
+    //MÉTODO PARA RETORNA VALOR DO ATRIBUTO VARIANCIA
+    public Double getVariancia(){
+        return this.variancia;
+    }
+    
+    //MÉTODO PARA SETAR O ATRIBUTO VARIANCIA
+    public void setVariancia(){
+        Double somatoriaXiXFi = 0.0;
+        Integer somatoriaFi = 0;
+         BigDecimal bd;
+        
+        for(Double temp : this.lista_xixfi){
+            somatoriaXiXFi += temp;
+        }
+        
+        for(Integer temp : this.lista_fi){
+            somatoriaFi += temp;
+        }
+        
+        if((this.populacao == true) && (this.amostra == false)){
+            bd = new BigDecimal((Double)(somatoriaXiXFi / somatoriaFi)).setScale(2, RoundingMode.HALF_EVEN);
+            this.variancia = bd.doubleValue();
+        }else if((this.populacao == false) && (this.amostra == true)){
+            bd = new BigDecimal((Double)(somatoriaXiXFi / (somatoriaFi-1))).setScale(2, RoundingMode.HALF_EVEN);
+            this.variancia = bd.doubleValue();
+        }
+    }
+    
+    
+    
+    //MÉTODO PARA RETORNA VALOR DO ATRIBUTO DESVIOPADRAO
+    public Double getDesvioPadrao(){
+        return this.desvioPadrao;
+    }
+    
+    //MÉTODO PARA SETAR O ATRIBUTO DESVIOPADRAO
+    public void setDesvioPadrao(){
+        BigDecimal bd = new BigDecimal(Math.sqrt(this.variancia)).setScale(2, RoundingMode.HALF_EVEN);
+        this.desvioPadrao = bd.doubleValue();
+    }
+    
+    
+    
+    //MÉTODO PARA RETORNA VALOR DO ATRIBUTO COEFICIENTE DE VARIAÇAO
+    public Double getCoeficienteVariacao(){
+        return this.coeficienteVariacao;
+    }
+    
+    //MÉTODO PARA SETAR O ATRIBUTO COEFICIENTE DE VARIAÇAO
+    public void setCoeficienteVariacao(){
+        BigDecimal bd = new BigDecimal((this.desvioPadrao / this.media) * 100).setScale(2, RoundingMode.HALF_EVEN);
+        this.coeficienteVariacao = bd.doubleValue();
+    }
+    
     
     
     
