@@ -1,7 +1,7 @@
 package br.com.estatistica.teste;
 
-import br.com.estatistica.controller.ListaContinua;
-import br.com.estatistica.controller.ListaDiscreta;
+import br.com.estatistica.controller.TabelaContinua;
+import br.com.estatistica.controller.TabelaDiscreta;
 import java.util.ArrayList;
 
 /**
@@ -10,52 +10,132 @@ import java.util.ArrayList;
  */
 public class TesteClasses {
     public static void main(String[] args){
-        ArrayList<Double> teste = new ArrayList<>();
-        teste.add(10.00);
-        teste.add(1.00);
-        teste.add(20.00);
-        teste.add(20.00);
-        teste.add(20.00);
-        teste.add(10.00);
-        teste.add(20.00);
-        teste.add(20.00);
-        teste.add(1.00);
-        teste.add(20.00);
-        teste.add(20.00);
-        teste.add(65.00);
-        teste.add(20.00);
-        teste.add(20.00);
-        teste.add(20.00);
-        teste.add(65.00);
-        teste.add(65.00);
-        teste.add(65.00);
-        teste.add(10.00);
-        teste.add(1.00);
-        teste.add(250.00);
+        TabelaDiscreta teste = new TabelaDiscreta();
+        
+        
+        //DADOS PARA TESTE COM VARIAVEL DISCRETA
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(0.00);
+        teste.addLista_rol(1.00);
+        teste.addLista_rol(1.00);
+        teste.addLista_rol(1.00);
+        teste.addLista_rol(1.00);
+        teste.addLista_rol(1.00);
+        teste.addLista_rol(1.00);
+        teste.addLista_rol(1.00);
+        teste.addLista_rol(1.00);
+        teste.addLista_rol(1.00);
+        teste.addLista_rol(1.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(2.00);
+        teste.addLista_rol(3.00);
+        teste.addLista_rol(3.00);
+        teste.addLista_rol(3.00);
+        teste.addLista_rol(3.00);
+        teste.addLista_rol(3.00);
+        teste.addLista_rol(3.00);
+        teste.addLista_rol(3.00);
+        teste.addLista_rol(3.00);
+        teste.addLista_rol(4.00);
+        teste.addLista_rol(4.00);
+        teste.addLista_rol(4.00);
+        teste.addLista_rol(4.00);
+        teste.addLista_rol(4.00);
+        teste.addLista_rol(5.00);
+        teste.addLista_rol(5.00);
+        teste.addLista_rol(5.00);
+        teste.addLista_rol(5.00);
+        
+
+
+        //DADOS PARA TESTE COM VARIAVEL CONTINUA
+//        teste.addLista_rol(20.00);
+//        teste.addLista_rol(37.00);
+//        teste.addLista_rol(40.00);
+//        teste.addLista_rol(32.00);
+//        teste.addLista_rol(28.00);
+//        teste.addLista_rol(26.00);
+//        teste.addLista_rol(25.00);
+//        teste.addLista_rol(32.00);
+//        teste.addLista_rol(39.00);
+//        teste.addLista_rol(40.00);
+//        teste.addLista_rol(50.00);
+//        teste.addLista_rol(47.00);
+//        teste.addLista_rol(46.00);
+//        teste.addLista_rol(31.00);
+//        teste.addLista_rol(24.00);
+//        teste.addLista_rol(21.00);
+//        teste.addLista_rol(35.00);
+//        teste.addLista_rol(39.00);
+//        teste.addLista_rol(38.00);
+//        teste.addLista_rol(43.00);
+        
+        
+        teste.geraDados();
+        
         
         System.out.println(teste);
         
-        ListaDiscreta lista = new ListaDiscreta(teste);
         
-        System.out.println("Rol = " + lista.getLista_Rol());
+        System.out.println("Rol = " + teste.getLista_Rol());
         
-        System.out.println("xi = " + lista.getLista_xi());
+        System.out.println("xi = " + teste.getLista_xi());
         
-        System.out.println("fi = " + lista.getLista_fi());
+        System.out.println("fi = " + teste.getLista_fi());
         
-        System.out.println("fr% = " + lista.getLista_frPorcentual());
+        System.out.println("fr% = " + teste.getLista_frPorcentual());
         
-        System.out.println("F = " + lista.getLista_F());
+        System.out.println("F = " + teste.getLista_F());
         
-        System.out.println("F% = " + lista.getLista_FPorcentual());
+        System.out.println("F% = " + teste.getLista_FPorcentual());
         
-        System.out.println("xi*fi = " + lista.getLista_XiFi());
+        System.out.println("xi*fi = " + teste.getLista_XiFi());
         
-        System.out.println("Média = " + lista.getMedia());
+        System.out.println("Xi - media * fi = " + teste.getLista_xixfi());
         
-         System.out.println("Xi - media * fi = " + lista.getLista_xixfi());
+        System.out.println("Média = " + teste.getMedia());
+         
+        System.out.println("Moda = " + teste.getModa());
+         
+        System.out.println("Mediana = " + teste.getMediana());
         
+//        teste.setPopulacao(true);
+//        teste.setAmostra(false);
         
+        System.out.println("Variância = " + teste.getVariancia());
+        
+        System.out.println("Desvio Padrão = " + teste.getDesvioPadrao());
+        
+        System.out.println("Coeficiente de variação = " + teste.getCoeficienteVariacao());
         
         
     }
