@@ -1,15 +1,11 @@
 
 package br.com.estatistica.view;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import javax.accessibility.AccessibleRole;
-import javax.swing.table.DefaultTableModel;
-
-
+import javax.swing.JOptionPane;
 
 public class SeriesEstatisticasGUI extends javax.swing.JFrame {
+    
     ArrayList<Double> ListaDeNumeros; //LISTA DE NUMEROS
     ArrayList<Double> ListaDeNumerosXI; //LISTA DE NUMEROS SEM REPETIÇÃO
     ArrayList<Integer> ListaQtdNumerosFI; //LISTA DA FREQUÊNCIA DOS NUMEROS DA ListaDeNumeros
@@ -18,9 +14,11 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     ArrayList<Double> ListaQtdNumerosFPerc;//LISTA COM A F PERCENTUAL DE CADA NUMERO DIGITADO
     TabelaContinuaGUI TabelaContinuaG;
     TabelaDiscretaGUI TabelaDiscretaG;
+    
     int soma = 0;
     double somaperc = 0;
     int i = 0;
+    
     public SeriesEstatisticasGUI() {
         initComponents();
         ListaDeNumeros = new ArrayList<>(); //LISTA GERAL DOS NUMEROS COM REPETIÇÕES
@@ -32,9 +30,9 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         TabelaContinuaG = new TabelaContinuaGUI();
         TabelaDiscretaG = new TabelaDiscretaGUI();
         
+        //habilitaCampos(true);
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -47,31 +45,32 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         buttonGroup6 = new javax.swing.ButtonGroup();
         buttonGroup7 = new javax.swing.ButtonGroup();
         BtnContinuar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        BtnConcluir = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         TextNumero = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TextRecebe = new javax.swing.JTextPane();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         BtnGerarFrenquencia = new javax.swing.JButton();
-        BtnGerarTabela = new javax.swing.JButton();
-        RdDiscreta = new javax.swing.JRadioButton();
-        RdContinua = new javax.swing.JRadioButton();
+        btnProcessar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         LblResult = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        ComboVariavel = new javax.swing.JComboBox<>();
+        ComboColeta = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Séries Estaíisticas");
         setExtendedState(6);
         setFocusable(false);
+        setPreferredSize(new java.awt.Dimension(600, 650));
         setResizable(false);
+        setSize(new java.awt.Dimension(600, 650));
 
         BtnContinuar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnContinuar.setText("Continuar");
+        BtnContinuar.setToolTipText("Inserir número digitado");
         BtnContinuar.setEnabled(false);
         BtnContinuar.setPreferredSize(new java.awt.Dimension(51, 30));
         BtnContinuar.addActionListener(new java.awt.event.ActionListener() {
@@ -80,26 +79,18 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton3.setText("  Sair");
-        jButton3.setPreferredSize(new java.awt.Dimension(51, 30));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnSair.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnSair.setText("  Sair");
+        btnSair.setToolTipText("Fechar janela");
+        btnSair.setPreferredSize(new java.awt.Dimension(51, 30));
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        BtnConcluir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BtnConcluir.setText("Concluir");
-        BtnConcluir.setEnabled(false);
-        BtnConcluir.setPreferredSize(new java.awt.Dimension(51, 30));
-        BtnConcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnConcluirActionPerformed(evt);
+                btnSairActionPerformed(evt);
             }
         });
 
         TextNumero.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TextNumero.setToolTipText("Entre os valores do rol 1 a 1 teclando Enter ou clicando em Continuar");
         TextNumero.setEnabled(false);
         TextNumero.setPreferredSize(new java.awt.Dimension(6, 30));
         TextNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -112,11 +103,8 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         TextRecebe.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jScrollPane1.setViewportView(TextRecebe);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setText("1º ETAPA");
-
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Números digitados:");
+        jLabel2.setText("Rol:");
 
         BtnGerarFrenquencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnGerarFrenquencia.setText("Gerar Frequência");
@@ -128,42 +116,21 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
             }
         });
 
-        BtnGerarTabela.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BtnGerarTabela.setText("Gerar Tabela");
-        BtnGerarTabela.setEnabled(false);
-        BtnGerarTabela.setPreferredSize(new java.awt.Dimension(51, 30));
-        BtnGerarTabela.addActionListener(new java.awt.event.ActionListener() {
+        btnProcessar.setBackground(new java.awt.Color(204, 255, 204));
+        btnProcessar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnProcessar.setForeground(new java.awt.Color(0, 102, 0));
+        btnProcessar.setText("Processar");
+        btnProcessar.setToolTipText("Processar dados e gerar tabela.");
+        btnProcessar.setEnabled(false);
+        btnProcessar.setPreferredSize(new java.awt.Dimension(51, 30));
+        btnProcessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnGerarTabelaActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(RdDiscreta);
-        RdDiscreta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        RdDiscreta.setText("Discreta");
-        RdDiscreta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RdDiscretaActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(RdContinua);
-        RdContinua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        RdContinua.setText("Contínua");
-        RdContinua.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RdContinuaActionPerformed(evt);
+                btnProcessarActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Digite os valores:");
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("2º ETAPA - Ordenação de dados de entrada");
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setText("3º ETAPA");
 
         LblResult.setBackground(new java.awt.Color(204, 204, 204));
         LblResult.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -172,90 +139,108 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Quantidade:");
 
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel7.setText("Tipo de Variável:");
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel8.setText("Tipo de Coleta:");
+
+        ComboVariavel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ComboVariavel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Discreta", "Contínua" }));
+        ComboVariavel.setToolTipText("Selecione o tipo de variável Discreta ou Contínua");
+        ComboVariavel.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ComboVariavelItemStateChanged(evt);
+            }
+        });
+        ComboVariavel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboVariavelActionPerformed(evt);
+            }
+        });
+
+        ComboColeta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ComboColeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Amostra", "População" }));
+        ComboColeta.setToolTipText("Selecione o tipo de coleta População ou Amostra");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(TextNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
-                        .addComponent(LblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(345, 345, 345))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(ComboVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(BtnGerarFrenquencia, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(BtnConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2)
-                            .addComponent(BtnGerarTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
+                                .addGap(20, 20, 20)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(TextNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addGap(103, 103, 103))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2)
+                                .addGap(213, 213, 213)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(ComboColeta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(RdDiscreta)
-                                .addGap(18, 18, 18)
-                                .addComponent(RdContinua))
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(94, 94, 94)
-                                .addComponent(jLabel6))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(BtnGerarFrenquencia, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RdDiscreta)
-                    .addComponent(RdContinua))
-                .addGap(25, 25, 25)
-                .addComponent(jLabel3)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ComboVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboColeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel6)
+                            .addComponent(LblResult))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnGerarFrenquencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BtnGerarTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnGerarFrenquencia, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(227, 227, 227))
         );
 
-        setSize(new java.awt.Dimension(583, 639));
+        setSize(new java.awt.Dimension(616, 469));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -271,84 +256,71 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
             LblResult.setText(Integer.toString(i));
         }
         
-        //HABILITA BOTÕES DE GERAR TABEL E ORDENAR
-        BtnGerarTabela.setEnabled(true);
-        BtnGerarFrenquencia.setEnabled(false);
+        //HABILITA BOTÃO ORDENAR
+        BtnGerarFrenquencia.setEnabled(true);
         
         //ACRESCENTA NUMERO DIGITADO CASO VALIDO NA LISTA ListaDeNumeros
-        ListaDeNumeros.add(Double.parseDouble(TextNumero.getText()));        
-       habilitaCampos(true);
-       
+        ListaDeNumeros.add(Double.parseDouble(TextNumero.getText()));
+               
        //ADICIONA AS LISTA NO PAINEL DE TEXTO
-       TextRecebe.setText(ListaDeNumeros.toString() + "\n\n" + 
-               ListaDeNumerosXI.toString());
+       TextRecebe.setText(ListaDeNumeros.toString() + "\n\n" + ListaDeNumerosXI.toString());
        TextNumero.setText("");
        TextNumero.requestFocus();
-       
-       
-       
-       
-       
-                
     }//GEN-LAST:event_BtnContinuarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //TEM QUE SER SYSTEM.EXIT SENÃO FICA O PROCESSO ATIVO
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void BtnConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConcluirActionPerformed
-        
-    }//GEN-LAST:event_BtnConcluirActionPerformed
+    }//GEN-LAST:event_btnSairActionPerformed
 
     private void TextNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNumeroActionPerformed
         //CHAMA O EVENTO DO BOTÃO CONTINUAR (BtnContinuar)
         BtnContinuarActionPerformed(evt);
     }//GEN-LAST:event_TextNumeroActionPerformed
 
-    private void BtnGerarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGerarTabelaActionPerformed
-        
-        
-        if(RdContinua.isSelected()){
-           TabelaContinuaG.setVisible(true);
-           TabelaContinuaG.addLinhas(ListaDeNumeros);
-       }
-       else{
-           TabelaDiscretaG.setVisible(true);
-           TabelaDiscretaG.addLinhas(ListaDeNumerosXI, ListaQtdNumerosFI, ListaQtdNumerosFrPerc, ListaQtdNumerosF, ListaQtdNumerosFPerc);
-           
-       }
-        
-    }//GEN-LAST:event_BtnGerarTabelaActionPerformed
-
-    private void RdDiscretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RdDiscretaActionPerformed
-        TextNumero.setEnabled(true);
-        TextNumero.requestFocus();
-    }//GEN-LAST:event_RdDiscretaActionPerformed
+    private void btnProcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessarActionPerformed
+        if (ComboColeta.getSelectedIndex() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Por favor selecione o tipo de coleta!", "Tipo de Coleta", 2);
+        }
+        else
+        {
+            if(ComboVariavel.getSelectedIndex() == 2){
+               TabelaContinuaG.setVisible(true);
+               //TabelaContinuaG.addLinhas(ListaDeNumeros);
+           }
+            else if(ComboVariavel.getSelectedIndex()== 1){
+               TabelaDiscretaG.setVisible(true);
+              // TabelaDiscretaG.addLinhas(ListaDeNumerosXI, ListaQtdNumerosFI, ListaQtdNumerosFrPerc, ListaQtdNumerosF, ListaQtdNumerosFPerc);
+           }
+        }
+    }//GEN-LAST:event_btnProcessarActionPerformed
 
     private void BtnGerarFrenquenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGerarFrenquenciaActionPerformed
-        
+
         TextRecebe.setText(TextRecebe.getText() + "\n\n" + 
-                ListaQtdNumerosFI.toString() + "\n\n FR% - " + 
-                ListaQtdNumerosFrPerc.toString() + "\n\n F - " +
-                ListaQtdNumerosF.toString() + "\n\n F% - " +
-                ListaQtdNumerosFPerc.toString());
+        ListaQtdNumerosFI.toString() + "\n\n FR% - " + 
+        ListaQtdNumerosFrPerc.toString() + "\n\n F - " +
+        ListaQtdNumerosF.toString() + "\n\n F% - " +
+        ListaQtdNumerosFPerc.toString());
+        btnProcessar.setEnabled(true);
     }//GEN-LAST:event_BtnGerarFrenquenciaActionPerformed
 
-    private void RdContinuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RdContinuaActionPerformed
-        TextNumero.setEnabled(true);
-        TextNumero.requestFocus();
-    }//GEN-LAST:event_RdContinuaActionPerformed
+    private void ComboVariavelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboVariavelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboVariavelActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void ComboVariavelItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboVariavelItemStateChanged
+        
+        if (ComboVariavel.getSelectedIndex() != 0)
+        {
+            TextNumero.setEnabled(true);
+            BtnContinuar.setEnabled(true);
+            BtnGerarFrenquencia.setEnabled(true);
+            
+        }
+    }//GEN-LAST:event_ComboVariavelItemStateChanged
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -365,10 +337,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SeriesEstatisticasGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SeriesEstatisticasGUI().setVisible(true);
@@ -377,15 +346,15 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnConcluir;
     private javax.swing.JButton BtnContinuar;
     private javax.swing.JButton BtnGerarFrenquencia;
-    private javax.swing.JButton BtnGerarTabela;
+    private javax.swing.JComboBox<String> ComboColeta;
+    private javax.swing.JComboBox<String> ComboVariavel;
     private javax.swing.JLabel LblResult;
-    private javax.swing.JRadioButton RdContinua;
-    private javax.swing.JRadioButton RdDiscreta;
     private javax.swing.JTextField TextNumero;
     private javax.swing.JTextPane TextRecebe;
+    private javax.swing.JButton btnProcessar;
+    private javax.swing.JButton btnSair;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -393,26 +362,12 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.ButtonGroup buttonGroup7;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-
-    final void habilitaCampos (boolean Valor){
-        
-        TextNumero.setEnabled(Valor);
-        BtnContinuar.setEnabled(Valor);
-       BtnGerarFrenquencia.setEnabled(Valor);
-       BtnConcluir.setEnabled(Valor);
-        //BtnGerarTabela.setEnabled(Valor);
-               
-       
-    }
-
 
 }
