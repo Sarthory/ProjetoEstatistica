@@ -116,7 +116,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
             }
         });
 
-        btnProcessar.setBackground(new java.awt.Color(204, 255, 204));
+        btnProcessar.setBackground(new java.awt.Color(153, 255, 153));
         btnProcessar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnProcessar.setForeground(new java.awt.Color(0, 102, 0));
         btnProcessar.setText("Processar");

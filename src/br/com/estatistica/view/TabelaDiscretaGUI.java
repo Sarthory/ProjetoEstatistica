@@ -47,7 +47,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton3 = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaDiscreta = new javax.swing.JTable();
 
@@ -55,12 +55,12 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         setTitle("TABELA - VARIAVÉL QUANTITATIVA DISCRETA");
         setResizable(false);
 
-        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton3.setText("Sair");
-        jButton3.setPreferredSize(new java.awt.Dimension(51, 30));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnSair.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnSair.setText("Sair");
+        btnSair.setPreferredSize(new java.awt.Dimension(51, 30));
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnSairActionPerformed(evt);
             }
         });
 
@@ -91,10 +91,10 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 708, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -102,8 +102,8 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 343, Short.MAX_VALUE)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -111,9 +111,9 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,7 +152,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaDiscreta;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnSair;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
