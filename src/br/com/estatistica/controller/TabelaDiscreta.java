@@ -8,6 +8,10 @@ import java.util.Collections;
  */
 
 public class TabelaDiscreta extends Tabela{
+
+    public static void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     //CONSTRUTOR QUE RECEBE COMO PARAMETRO A LISTA DO ROL
     public TabelaDiscreta(){
