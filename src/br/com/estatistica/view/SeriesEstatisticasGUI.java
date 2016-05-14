@@ -15,7 +15,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     ArrayList<Integer> ListaQtdNumerosF;//LISTA COM F DE CADA NUMERO DIGITADO
     ArrayList<Double> ListaQtdNumerosFPerc;//LISTA COM A F PERCENTUAL DE CADA NUMERO DIGITADO
     TabelaContinuaGUI TabelaContinuaG;
-  //  TabelaDiscretaGUI TabelaDiscretaG;
+    TabelaDiscretaGUI TabelaDiscretaG;
     
     int soma = 0;
     double somaperc = 0;
@@ -33,9 +33,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         ListaQtdNumerosF = new ArrayList<>();//LISTA COM F DE CADA NUMERO DIGITADO
         ListaQtdNumerosFPerc = new ArrayList<>();//LISTA COM A F PERCENTUAL DE CADA NUMERO DIGITADO
         TabelaContinuaG = new TabelaContinuaGUI();
-       // TabelaDiscretaG = new TabelaDiscretaGUI();
-        
-        //habilitaCampos(true);
+       TabelaDiscretaG = new TabelaDiscretaGUI();
     }
 
     @SuppressWarnings("unchecked")
@@ -337,10 +335,10 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                TabelaContinuaG.setVisible(true);
                //TabelaContinuaG.addLinhas(ListaDeNumeros);
            }
-            //else if(ComboVariavel.getSelectedIndex()== 1){
-           //    TabelaDiscretaG.setVisible(true);
-              // TabelaDiscretaG.addLinhas(ListaDeNumerosXI, ListaQtdNumerosFI, ListaQtdNumerosFrPerc, ListaQtdNumerosF, ListaQtdNumerosFPerc);
-           //}
+            else if(ComboVariavel.getSelectedIndex()== 1){
+                TabelaDiscretaG.setVisible(true);
+                TabelaDiscretaG.addLinhas(ListaDeNumerosXI, ListaQtdNumerosFI, ListaQtdNumerosFrPerc, ListaQtdNumerosF, ListaQtdNumerosFPerc);
+           }
         }
     }//GEN-LAST:event_btnProcessarActionPerformed
 
