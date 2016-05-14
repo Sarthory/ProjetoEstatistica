@@ -1,8 +1,10 @@
 
 package br.com.estatistica.view;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class TecnicasAmostragemGUI extends javax.swing.JFrame {
@@ -17,7 +19,9 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
 
     public TecnicasAmostragemGUI() {
        initComponents();
-
+       URL iconURL = getClass().getResource("/br/com/estatistica/img/chart_bar.png");
+       ImageIcon icon = new ImageIcon(iconURL);
+       this.setIconImage(icon.getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -48,7 +52,10 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(600, 650));
 
         jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton3.setText("  Sair");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/close.png"))); // NOI18N
+        jButton3.setText("Fechar");
+        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButton3.setPreferredSize(new java.awt.Dimension(51, 30));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,21 +64,11 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         });
 
         CbTAmostragem.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        CbTAmostragem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione uma opção", "Aleatória Simples", "Estratificada Proporcional", "Estratificada Uniforme", "Sistemática" }));
+        CbTAmostragem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Aleatória Simples", "Estratificada Proporcional", "Estratificada Uniforme", "Sistemática" }));
         CbTAmostragem.setPreferredSize(new java.awt.Dimension(56, 30));
         CbTAmostragem.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 CbTAmostragemItemStateChanged(evt);
-            }
-        });
-        CbTAmostragem.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                CbTAmostragemMousePressed(evt);
-            }
-        });
-        CbTAmostragem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CbTAmostragemActionPerformed(evt);
             }
         });
 
@@ -81,7 +78,12 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         BtnCalcular.setBackground(new java.awt.Color(153, 255, 153));
         BtnCalcular.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnCalcular.setForeground(new java.awt.Color(0, 102, 0));
+        BtnCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/OK.png"))); // NOI18N
         BtnCalcular.setText("Calcular");
+        BtnCalcular.setEnabled(false);
+        BtnCalcular.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnCalcular.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        BtnCalcular.setIconTextGap(40);
         BtnCalcular.setPreferredSize(new java.awt.Dimension(51, 30));
         BtnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,11 +95,6 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         TextQtdAmostra.setToolTipText("se refere a quantidade  de uma parcela de um todo");
         TextQtdAmostra.setEnabled(false);
         TextQtdAmostra.setPreferredSize(new java.awt.Dimension(6, 30));
-        TextQtdAmostra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextQtdAmostraActionPerformed(evt);
-            }
-        });
 
         LblQtdAmostra.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         LblQtdAmostra.setText("Quantidade da Amostra:");
@@ -107,11 +104,6 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         TextQtdPopulacao.setToolTipText("Se refere a quantidade  total e não a uma parcela");
         TextQtdPopulacao.setEnabled(false);
         TextQtdPopulacao.setPreferredSize(new java.awt.Dimension(6, 30));
-        TextQtdPopulacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextQtdPopulacaoActionPerformed(evt);
-            }
-        });
 
         LblQtdPopulacao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         LblQtdPopulacao.setText("Quantidade da População:");
@@ -125,21 +117,11 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         TextQtdExtratos.setToolTipText("Se refere a quantidade  total e não a uma parcela");
         TextQtdExtratos.setEnabled(false);
         TextQtdExtratos.setPreferredSize(new java.awt.Dimension(6, 30));
-        TextQtdExtratos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextQtdExtratosActionPerformed(evt);
-            }
-        });
 
         TextNumeroInicial.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         TextNumeroInicial.setToolTipText("Se refere a quantidade  total e não a uma parcela");
         TextNumeroInicial.setEnabled(false);
         TextNumeroInicial.setPreferredSize(new java.awt.Dimension(6, 30));
-        TextNumeroInicial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextNumeroInicialActionPerformed(evt);
-            }
-        });
 
         LblNumeroInicial.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         LblNumeroInicial.setText("Número inicial:");
@@ -156,7 +138,11 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtResultados);
 
         btnLimpar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnLimpar.setForeground(new java.awt.Color(0, 0, 0));
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/renew.png"))); // NOI18N
         btnLimpar.setText("Limpar");
+        btnLimpar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLimpar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnLimpar.setPreferredSize(new java.awt.Dimension(51, 30));
         btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,12 +175,14 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
                                     .addComponent(LblNumeroInicial)
                                     .addComponent(LblQtdEstratos)
                                     .addComponent(LblQtdAmostra)
-                                    .addComponent(TextQtdAmostra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TextQtdAmostra, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                                     .addComponent(LblQtdPopulacao)
                                     .addComponent(TextQtdPopulacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(TextQtdExtratos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(TextNumeroInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(BtnCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(58, 58, 58)
+                                        .addComponent(BtnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 71, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -227,11 +215,11 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TextNumeroInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BtnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addComponent(BtnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,31 +254,6 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnCalcularActionPerformed
 
-    private void TextQtdAmostraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextQtdAmostraActionPerformed
-
-
-    }//GEN-LAST:event_TextQtdAmostraActionPerformed
-
-    private void TextQtdPopulacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextQtdPopulacaoActionPerformed
-
-    }//GEN-LAST:event_TextQtdPopulacaoActionPerformed
-
-    private void CbTAmostragemMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CbTAmostragemMousePressed
-
-    }//GEN-LAST:event_CbTAmostragemMousePressed
-
-    private void TextQtdExtratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextQtdExtratosActionPerformed
-
-    }//GEN-LAST:event_TextQtdExtratosActionPerformed
-
-    private void TextNumeroInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNumeroInicialActionPerformed
-
-    }//GEN-LAST:event_TextNumeroInicialActionPerformed
-
-    private void CbTAmostragemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbTAmostragemActionPerformed
-
-    }//GEN-LAST:event_CbTAmostragemActionPerformed
-
     private void CbTAmostragemItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CbTAmostragemItemStateChanged
 
          if(CbTAmostragem.getSelectedIndex()== 0){
@@ -304,6 +267,7 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
           LblQtdEstratos.setEnabled(false);
           TextNumeroInicial.setEnabled(false);
           LblNumeroInicial.setEnabled(false);
+          BtnCalcular.setEnabled(false);
         }
 
         if(CbTAmostragem.getSelectedIndex()== 1){
@@ -314,6 +278,7 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
           LblQtdAmostra.setEnabled(true);
           LblQtdPopulacao.setEnabled(true);
           TextQtdAmostra.requestFocus();
+          BtnCalcular.setEnabled(true);
 
           // desabilita
           TextQtdExtratos.setEnabled(false);
@@ -331,6 +296,7 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
           LblQtdPopulacao.setEnabled(true);
           LblQtdEstratos.setEnabled(true);
           TextQtdAmostra.requestFocus();
+          BtnCalcular.setEnabled(true);
 
            // desabilita
 
@@ -344,6 +310,7 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
           LblQtdAmostra.setEnabled(true);
           LblQtdEstratos.setEnabled(true);
           TextQtdAmostra.requestFocus();
+          BtnCalcular.setEnabled(true);
 
            // desabilita
           TextQtdPopulacao.setEnabled(false);
@@ -362,6 +329,7 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
           LblQtdPopulacao.setEnabled(true);
           LblNumeroInicial.setEnabled(true);
           TextQtdAmostra.requestFocus();
+          BtnCalcular.setEnabled(true);
 
            // desabilita
           TextQtdExtratos.setEnabled(false);
@@ -379,6 +347,7 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         TextQtdPopulacao.setText("");
         TextQtdExtratos.setText("");
         TextNumeroInicial.setText("");
+        CbTAmostragem.setSelectedIndex(0);
     }//GEN-LAST:event_btnLimparActionPerformed
 
     public static void main(String args[]) {

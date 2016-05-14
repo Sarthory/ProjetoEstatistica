@@ -1,7 +1,9 @@
 
 package br.com.estatistica.view;
 
+import java.net.URL;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class SeriesEstatisticasGUI extends javax.swing.JFrame {
@@ -13,7 +15,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     ArrayList<Integer> ListaQtdNumerosF;//LISTA COM F DE CADA NUMERO DIGITADO
     ArrayList<Double> ListaQtdNumerosFPerc;//LISTA COM A F PERCENTUAL DE CADA NUMERO DIGITADO
     TabelaContinuaGUI TabelaContinuaG;
-    TabelaDiscretaGUI TabelaDiscretaG;
+  //  TabelaDiscretaGUI TabelaDiscretaG;
     
     int soma = 0;
     double somaperc = 0;
@@ -21,6 +23,9 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     
     public SeriesEstatisticasGUI() {
         initComponents();
+        URL iconURL = getClass().getResource("/br/com/estatistica/img/chart_bar.png");
+        ImageIcon icon = new ImageIcon(iconURL);
+        this.setIconImage(icon.getImage());
         ListaDeNumeros = new ArrayList<>(); //LISTA GERAL DOS NUMEROS COM REPETIÇÕES
         ListaDeNumerosXI = new ArrayList<>();//LISTA GERAL DOS NUMEROS SEM REPETIÇÕES
         ListaQtdNumerosFI = new ArrayList<>(); //LISTA COM A FREQUENCIA DE CADA NUMERO DIGITADO
@@ -28,7 +33,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         ListaQtdNumerosF = new ArrayList<>();//LISTA COM F DE CADA NUMERO DIGITADO
         ListaQtdNumerosFPerc = new ArrayList<>();//LISTA COM A F PERCENTUAL DE CADA NUMERO DIGITADO
         TabelaContinuaG = new TabelaContinuaGUI();
-        TabelaDiscretaG = new TabelaDiscretaGUI();
+       // TabelaDiscretaG = new TabelaDiscretaGUI();
         
         //habilitaCampos(true);
     }
@@ -57,8 +62,9 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        ComboVariavel = new javax.swing.JComboBox<String>();
-        ComboColeta = new javax.swing.JComboBox<String>();
+        ComboVariavel = new javax.swing.JComboBox<>();
+        ComboColeta = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Séries Estaíisticas");
@@ -67,9 +73,12 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         setResizable(false);
 
         BtnContinuar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BtnContinuar.setText("Continuar");
+        BtnContinuar.setForeground(new java.awt.Color(0, 0, 0));
+        BtnContinuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/accept.png"))); // NOI18N
+        BtnContinuar.setText("Adicionar");
         BtnContinuar.setToolTipText("Inserir número digitado");
         BtnContinuar.setEnabled(false);
+        BtnContinuar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         BtnContinuar.setPreferredSize(new java.awt.Dimension(51, 30));
         BtnContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,8 +87,12 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         });
 
         btnSair.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnSair.setText("  Sair");
+        btnSair.setForeground(new java.awt.Color(0, 0, 0));
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/close.png"))); // NOI18N
+        btnSair.setText("Fechar");
         btnSair.setToolTipText("Fechar janela");
+        btnSair.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSair.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnSair.setPreferredSize(new java.awt.Dimension(51, 30));
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +101,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         });
 
         TextNumero.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TextNumero.setForeground(new java.awt.Color(0, 0, 0));
         TextNumero.setToolTipText("Entre os valores do rol 1 a 1 teclando Enter ou clicando em Continuar");
         TextNumero.setEnabled(false);
         TextNumero.setPreferredSize(new java.awt.Dimension(6, 30));
@@ -102,11 +116,16 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TextRecebe);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Rol:");
 
         BtnGerarFrenquencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        BtnGerarFrenquencia.setForeground(new java.awt.Color(0, 0, 0));
+        BtnGerarFrenquencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/application.png"))); // NOI18N
         BtnGerarFrenquencia.setText("Gerar Frequência");
         BtnGerarFrenquencia.setEnabled(false);
+        BtnGerarFrenquencia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnGerarFrenquencia.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         BtnGerarFrenquencia.setPreferredSize(new java.awt.Dimension(51, 30));
         BtnGerarFrenquencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,9 +136,13 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         btnProcessar.setBackground(new java.awt.Color(153, 255, 153));
         btnProcessar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnProcessar.setForeground(new java.awt.Color(0, 102, 0));
+        btnProcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/system.png"))); // NOI18N
         btnProcessar.setText("Processar");
         btnProcessar.setToolTipText("Processar dados e gerar tabela.");
         btnProcessar.setEnabled(false);
+        btnProcessar.setHideActionText(true);
+        btnProcessar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnProcessar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnProcessar.setPreferredSize(new java.awt.Dimension(51, 30));
         btnProcessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,23 +151,29 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Digite os valores:");
 
         LblResult.setBackground(new java.awt.Color(204, 204, 204));
         LblResult.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        LblResult.setForeground(new java.awt.Color(0, 0, 0));
         LblResult.setText("0");
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Quantidade:");
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Tipo de Variável:");
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Tipo de Coleta:");
 
         ComboVariavel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        ComboVariavel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Discreta", "Contínua" }));
+        ComboVariavel.setForeground(new java.awt.Color(0, 0, 0));
+        ComboVariavel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Discreta", "Contínua" }));
         ComboVariavel.setToolTipText("Selecione o tipo de variável Discreta ou Contínua");
         ComboVariavel.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -158,8 +187,19 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         });
 
         ComboColeta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        ComboColeta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Amostra", "População" }));
+        ComboColeta.setForeground(new java.awt.Color(0, 0, 0));
+        ComboColeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Amostra", "População" }));
         ComboColeta.setToolTipText("Selecione o tipo de coleta População ou Amostra");
+
+        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/renew.png"))); // NOI18N
+        jButton1.setText("Limpar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,42 +208,49 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BtnGerarFrenquencia, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(ComboVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel3))
+                                .addGap(103, 103, 103))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(213, 213, 213))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(TextNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(76, 76, 76)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addComponent(TextNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel3))
-                                        .addGap(103, 103, 103))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jLabel2)
-                                        .addGap(213, 213, 213)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
-                                    .addComponent(ComboColeta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(LblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 97, Short.MAX_VALUE))
+                                    .addComponent(ComboColeta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(BtnGerarFrenquencia, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(20, 20, 20)
+                        .addComponent(ComboVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -218,23 +265,26 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                     .addComponent(ComboVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboColeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6)
-                    .addComponent(LblResult))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel6)
+                            .addComponent(LblResult))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(BtnGerarFrenquencia, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(227, 227, 227))
         );
@@ -287,10 +337,10 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                TabelaContinuaG.setVisible(true);
                //TabelaContinuaG.addLinhas(ListaDeNumeros);
            }
-            else if(ComboVariavel.getSelectedIndex()== 1){
-               TabelaDiscretaG.setVisible(true);
+            //else if(ComboVariavel.getSelectedIndex()== 1){
+           //    TabelaDiscretaG.setVisible(true);
               // TabelaDiscretaG.addLinhas(ListaDeNumerosXI, ListaQtdNumerosFI, ListaQtdNumerosFrPerc, ListaQtdNumerosF, ListaQtdNumerosFPerc);
-           }
+           //}
         }
     }//GEN-LAST:event_btnProcessarActionPerformed
 
@@ -315,9 +365,22 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
             TextNumero.setEnabled(true);
             BtnContinuar.setEnabled(true);
             BtnGerarFrenquencia.setEnabled(true);
+            TextNumero.requestFocus();
             
         }
     }//GEN-LAST:event_ComboVariavelItemStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ComboVariavel.setSelectedIndex(0);
+        ComboColeta.setSelectedIndex(0);
+        TextRecebe.setText("");
+        LblResult.setText("0");
+        i = 0;
+        BtnContinuar.setEnabled(false);
+        BtnGerarFrenquencia.setEnabled(false);
+        btnProcessar.setEnabled(false);
+        TextNumero.setEnabled(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -361,6 +424,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.ButtonGroup buttonGroup7;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
