@@ -57,16 +57,14 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        ComboVariavel = new javax.swing.JComboBox<>();
-        ComboColeta = new javax.swing.JComboBox<>();
+        ComboVariavel = new javax.swing.JComboBox<String>();
+        ComboColeta = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Séries Estaíisticas");
         setExtendedState(6);
         setFocusable(false);
-        setPreferredSize(new java.awt.Dimension(600, 650));
         setResizable(false);
-        setSize(new java.awt.Dimension(600, 650));
 
         BtnContinuar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnContinuar.setText("Continuar");
@@ -146,7 +144,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         jLabel8.setText("Tipo de Coleta:");
 
         ComboVariavel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        ComboVariavel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Discreta", "Contínua" }));
+        ComboVariavel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Discreta", "Contínua" }));
         ComboVariavel.setToolTipText("Selecione o tipo de variável Discreta ou Contínua");
         ComboVariavel.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -160,7 +158,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         });
 
         ComboColeta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        ComboColeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Amostra", "População" }));
+        ComboColeta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Amostra", "População" }));
         ComboColeta.setToolTipText("Selecione o tipo de coleta População ou Amostra");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
