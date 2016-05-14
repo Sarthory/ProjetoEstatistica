@@ -37,6 +37,23 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaDiscreta = new javax.swing.JTable();
+        tabMedidas = new javax.swing.JTabbedPane();
+        panDispersao = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtModa_Continua = new javax.swing.JTextField();
+        txtMedia_Continua = new javax.swing.JTextField();
+        txtMediana_Continua = new javax.swing.JTextField();
+        panTendenciaCentral = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        txtCoefVariacao_Continua = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtVariancia_Continua = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtDesvioPadrao_Continua = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         tabDistribuicao = new javax.swing.JTabbedPane();
         panNormal = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -77,44 +94,27 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         comboPontosEq_DistUnif = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        btnLimpar_DistUniforme = new javax.swing.JButton();
-        btnCalc_DistUniforme = new javax.swing.JButton();
+        comboPontos_DistUnif = new javax.swing.JComboBox<>();
+        btnLimpar_DistUnif = new javax.swing.JButton();
+        btnCalc_DistUnif = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        txtValor1_DistNormal1 = new javax.swing.JTextField();
+        txtMinimo_DistUnif = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        txtValor2_DistNormal1 = new javax.swing.JTextField();
-        txtValor1_DistNormal2 = new javax.swing.JTextField();
+        txtMaximo_DistUnif = new javax.swing.JTextField();
+        txtPonto1_DistUnif = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        txtValor2_DistNormal2 = new javax.swing.JTextField();
+        txtPonto2_DistUnif = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        txtValor1_DistNormal3 = new javax.swing.JTextField();
+        txtMedia_DistUnif = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        lblProbabilidade_DistBinomial1 = new javax.swing.JLabel();
+        lblProbabilidade_DistUnif = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        lblMedia_DistBinomial1 = new javax.swing.JLabel();
+        lblMedia_DistUnif = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        lblDesvioP_DistBinomial1 = new javax.swing.JLabel();
+        lblVariancia_DistUnif = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        lblDesvioP_DistBinomial2 = new javax.swing.JLabel();
-        tabMedidas = new javax.swing.JTabbedPane();
-        panDispersao = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtModa = new javax.swing.JTextField();
-        txtMedia = new javax.swing.JTextField();
-        txtMediana = new javax.swing.JTextField();
-        panTendenciaCentral = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        txtCoefVariacao = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtVariancia = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txtDesvioPadrao = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        lblDesvioP_DistUnif = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tabela - Variável Quantitativa Contínua");
@@ -148,6 +148,156 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         });
         TabelaDiscreta.setToolTipText("");
         jScrollPane1.setViewportView(TabelaDiscreta);
+
+        tabMedidas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Medidas", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        tabMedidas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Média");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Moda");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Mediana");
+
+        txtModa_Continua.setEditable(false);
+        txtModa_Continua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtModa_Continua.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtMedia_Continua.setEditable(false);
+        txtMedia_Continua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtMedia_Continua.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtMediana_Continua.setEditable(false);
+        txtMediana_Continua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtMediana_Continua.setForeground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout panDispersaoLayout = new javax.swing.GroupLayout(panDispersao);
+        panDispersao.setLayout(panDispersaoLayout);
+        panDispersaoLayout.setHorizontalGroup(
+            panDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panDispersaoLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(72, 72, 72)
+                .addComponent(jLabel3)
+                .addGap(22, 22, 22))
+            .addGroup(panDispersaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtMedia_Continua, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtModa_Continua)
+                .addGap(18, 18, 18)
+                .addComponent(txtMediana_Continua, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        panDispersaoLayout.setVerticalGroup(
+            panDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panDispersaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtModa_Continua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMedia_Continua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMediana_Continua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+
+        tabMedidas.addTab("Tendência Central", panDispersao);
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("CV");
+
+        txtCoefVariacao_Continua.setEditable(false);
+        txtCoefVariacao_Continua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtCoefVariacao_Continua.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Variância");
+
+        txtVariancia_Continua.setEditable(false);
+        txtVariancia_Continua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtVariancia_Continua.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Desvio Padrão");
+
+        txtDesvioPadrao_Continua.setEditable(false);
+        txtDesvioPadrao_Continua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtDesvioPadrao_Continua.setForeground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout panTendenciaCentralLayout = new javax.swing.GroupLayout(panTendenciaCentral);
+        panTendenciaCentral.setLayout(panTendenciaCentralLayout);
+        panTendenciaCentralLayout.setHorizontalGroup(
+            panTendenciaCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panTendenciaCentralLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel6))
+            .addGroup(panTendenciaCentralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtCoefVariacao_Continua, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtVariancia_Continua)
+                .addGap(18, 18, 18)
+                .addComponent(txtDesvioPadrao_Continua, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        panTendenciaCentralLayout.setVerticalGroup(
+            panTendenciaCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panTendenciaCentralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panTendenciaCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panTendenciaCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtVariancia_Continua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCoefVariacao_Continua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDesvioPadrao_Continua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+
+        tabMedidas.addTab("Dispersão", panTendenciaCentral);
+
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Gráfico");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(168, 168, 168)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(122, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(106, 106, 106))
+        );
 
         tabDistribuicao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Distribuição", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
         tabDistribuicao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -392,10 +542,10 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
                             .addComponent(jLabel19)
                             .addComponent(jLabel20))
                         .addGap(31, 31, 31)
-                        .addGroup(panBinomialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMedia_DistBinomial)
-                            .addComponent(lblDesvioP_DistBinomial)
-                            .addComponent(lblProbabilidade_DistBinomial))
+                        .addGroup(panBinomialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblProbabilidade_DistBinomial, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                            .addComponent(lblMedia_DistBinomial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDesvioP_DistBinomial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panBinomialLayout.createSequentialGroup()
@@ -459,30 +609,30 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("Pontos");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Mínimo", "Máximo", "Ambos" }));
+        comboPontos_DistUnif.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Mínimo", "Máximo", "Ambos" }));
 
-        btnLimpar_DistUniforme.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnLimpar_DistUniforme.setForeground(new java.awt.Color(0, 0, 0));
-        btnLimpar_DistUniforme.setText("Limpar");
+        btnLimpar_DistUnif.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnLimpar_DistUnif.setForeground(new java.awt.Color(0, 0, 0));
+        btnLimpar_DistUnif.setText("Limpar");
 
-        btnCalc_DistUniforme.setBackground(new java.awt.Color(153, 255, 153));
-        btnCalc_DistUniforme.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnCalc_DistUniforme.setForeground(new java.awt.Color(0, 102, 0));
-        btnCalc_DistUniforme.setText("Calcular");
+        btnCalc_DistUnif.setBackground(new java.awt.Color(153, 255, 153));
+        btnCalc_DistUnif.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCalc_DistUnif.setForeground(new java.awt.Color(0, 102, 0));
+        btnCalc_DistUnif.setText("Calcular");
 
         jLabel25.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("Mínimo");
 
-        txtValor1_DistNormal1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtMinimo_DistUnif.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Máximo");
 
-        txtValor2_DistNormal1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtMaximo_DistUnif.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        txtValor1_DistNormal2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtPonto1_DistUnif.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabel27.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
@@ -492,45 +642,45 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         jLabel28.setForeground(new java.awt.Color(0, 0, 0));
         jLabel28.setText("2º Ponto");
 
-        txtValor2_DistNormal2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtPonto2_DistUnif.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("Média");
 
-        txtValor1_DistNormal3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtMedia_DistUnif.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabel30.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(0, 0, 0));
         jLabel30.setText("Probabilidade:");
 
-        lblProbabilidade_DistBinomial1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblProbabilidade_DistBinomial1.setForeground(new java.awt.Color(0, 0, 0));
-        lblProbabilidade_DistBinomial1.setText("99,99%");
+        lblProbabilidade_DistUnif.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblProbabilidade_DistUnif.setForeground(new java.awt.Color(0, 0, 0));
+        lblProbabilidade_DistUnif.setText("99,99%");
 
         jLabel31.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(0, 0, 0));
         jLabel31.setText("Média:");
 
-        lblMedia_DistBinomial1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblMedia_DistBinomial1.setForeground(new java.awt.Color(0, 0, 0));
-        lblMedia_DistBinomial1.setText("10");
+        lblMedia_DistUnif.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMedia_DistUnif.setForeground(new java.awt.Color(0, 0, 0));
+        lblMedia_DistUnif.setText("10");
 
         jLabel32.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(0, 0, 0));
         jLabel32.setText("Variância:");
 
-        lblDesvioP_DistBinomial1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblDesvioP_DistBinomial1.setForeground(new java.awt.Color(0, 0, 0));
-        lblDesvioP_DistBinomial1.setText("5,25");
+        lblVariancia_DistUnif.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblVariancia_DistUnif.setForeground(new java.awt.Color(0, 0, 0));
+        lblVariancia_DistUnif.setText("5,25");
 
         jLabel33.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setText("Desvio Padrão:");
 
-        lblDesvioP_DistBinomial2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblDesvioP_DistBinomial2.setForeground(new java.awt.Color(0, 0, 0));
-        lblDesvioP_DistBinomial2.setText("5,25");
+        lblDesvioP_DistUnif.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblDesvioP_DistUnif.setForeground(new java.awt.Color(0, 0, 0));
+        lblDesvioP_DistUnif.setText("5,25");
 
         javax.swing.GroupLayout panUniformeLayout = new javax.swing.GroupLayout(panUniforme);
         panUniforme.setLayout(panUniformeLayout);
@@ -551,14 +701,14 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
                                 .addComponent(jLabel33)
                                 .addGap(26, 26, 26)))
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDesvioP_DistBinomial2)
-                            .addComponent(lblMedia_DistBinomial1)
-                            .addComponent(lblDesvioP_DistBinomial1)
-                            .addComponent(lblProbabilidade_DistBinomial1))
+                            .addComponent(lblDesvioP_DistUnif)
+                            .addComponent(lblMedia_DistUnif)
+                            .addComponent(lblVariancia_DistUnif)
+                            .addComponent(lblProbabilidade_DistUnif))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLimpar_DistUniforme)
+                        .addComponent(btnLimpar_DistUnif)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCalc_DistUniforme))
+                        .addComponent(btnCalc_DistUnif))
                     .addGroup(panUniformeLayout.createSequentialGroup()
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -569,26 +719,26 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboPontos_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panUniformeLayout.createSequentialGroup()
                                 .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtValor1_DistNormal1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtMinimo_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtValor2_DistNormal1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtMaximo_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(panUniformeLayout.createSequentialGroup()
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtValor1_DistNormal2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPonto1_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtValor2_DistNormal2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPonto2_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtValor1_DistNormal3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMedia_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel29))
                         .addGap(106, 106, 106))))
         );
@@ -604,7 +754,7 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
                     .addGroup(panUniformeLayout.createSequentialGroup()
                         .addComponent(jLabel24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(comboPontos_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panUniformeLayout.createSequentialGroup()
@@ -615,11 +765,11 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
                         .addGroup(panUniformeLayout.createSequentialGroup()
                             .addComponent(jLabel25)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtValor1_DistNormal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtMinimo_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(panUniformeLayout.createSequentialGroup()
                             .addComponent(jLabel26)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtValor2_DistNormal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtMaximo_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panUniformeLayout.createSequentialGroup()
@@ -627,190 +777,40 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
                             .addGroup(panUniformeLayout.createSequentialGroup()
                                 .addComponent(jLabel27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtValor1_DistNormal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtPonto1_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panUniformeLayout.createSequentialGroup()
                                 .addComponent(jLabel28)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtValor2_DistNormal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtPonto2_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panUniformeLayout.createSequentialGroup()
                                 .addComponent(jLabel29)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtValor1_DistNormal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtMedia_DistUnif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30)
-                            .addComponent(lblProbabilidade_DistBinomial1))
+                            .addComponent(lblProbabilidade_DistUnif))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel31)
-                            .addComponent(lblMedia_DistBinomial1))
+                            .addComponent(lblMedia_DistUnif))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel32)
-                            .addComponent(lblDesvioP_DistBinomial1))
+                            .addComponent(lblVariancia_DistUnif))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel33)
-                            .addComponent(lblDesvioP_DistBinomial2))
+                            .addComponent(lblDesvioP_DistUnif))
                         .addGap(0, 11, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUniformeLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(panUniformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCalc_DistUniforme)
-                            .addComponent(btnLimpar_DistUniforme)))))
+                            .addComponent(btnCalc_DistUnif)
+                            .addComponent(btnLimpar_DistUnif)))))
         );
 
         tabDistribuicao.addTab("Uniforme", panUniforme);
-
-        tabMedidas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Medidas", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
-        tabMedidas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Média");
-
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Moda");
-
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Mediana");
-
-        txtModa.setEditable(false);
-        txtModa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtModa.setForeground(new java.awt.Color(0, 0, 0));
-
-        txtMedia.setEditable(false);
-        txtMedia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtMedia.setForeground(new java.awt.Color(0, 0, 0));
-
-        txtMediana.setEditable(false);
-        txtMediana.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtMediana.setForeground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout panDispersaoLayout = new javax.swing.GroupLayout(panDispersao);
-        panDispersao.setLayout(panDispersaoLayout);
-        panDispersaoLayout.setHorizontalGroup(
-            panDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panDispersaoLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(72, 72, 72)
-                .addComponent(jLabel3)
-                .addGap(22, 22, 22))
-            .addGroup(panDispersaoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtModa)
-                .addGap(18, 18, 18)
-                .addComponent(txtMediana, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panDispersaoLayout.setVerticalGroup(
-            panDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panDispersaoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtModa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMediana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
-        tabMedidas.addTab("Tendência Central", panDispersao);
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("CV");
-
-        txtCoefVariacao.setEditable(false);
-        txtCoefVariacao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtCoefVariacao.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Variância");
-
-        txtVariancia.setEditable(false);
-        txtVariancia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtVariancia.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Desvio Padrão");
-
-        txtDesvioPadrao.setEditable(false);
-        txtDesvioPadrao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtDesvioPadrao.setForeground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout panTendenciaCentralLayout = new javax.swing.GroupLayout(panTendenciaCentral);
-        panTendenciaCentral.setLayout(panTendenciaCentralLayout);
-        panTendenciaCentralLayout.setHorizontalGroup(
-            panTendenciaCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panTendenciaCentralLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel6))
-            .addGroup(panTendenciaCentralLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtCoefVariacao, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtVariancia)
-                .addGap(18, 18, 18)
-                .addComponent(txtDesvioPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panTendenciaCentralLayout.setVerticalGroup(
-            panTendenciaCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panTendenciaCentralLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panTendenciaCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panTendenciaCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtVariancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCoefVariacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDesvioPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
-        tabMedidas.addTab("Dispersão", panTendenciaCentral);
-
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Gráfico");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(168, 168, 168)
-                .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(122, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(106, 106, 106))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -826,10 +826,13 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(tabMedidas))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tabDistribuicao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(314, 314, 314)
+                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tabDistribuicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -911,15 +914,15 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     private javax.swing.JTable TabelaDiscreta;
     private javax.swing.JButton btnCalc_DistBinomial;
     private javax.swing.JButton btnCalc_DistNormal;
-    private javax.swing.JButton btnCalc_DistUniforme;
+    private javax.swing.JButton btnCalc_DistUnif;
     private javax.swing.JButton btnLimpar_DistBinomial;
     private javax.swing.JButton btnLimpar_DistNormal;
-    private javax.swing.JButton btnLimpar_DistUniforme;
+    private javax.swing.JButton btnLimpar_DistUnif;
     private javax.swing.JButton btnSair;
     private javax.swing.JComboBox<String> comboPontosEq_DistUnif;
+    private javax.swing.JComboBox<String> comboPontos_DistUnif;
     private javax.swing.JComboBox<String> comboPosicao_DistNormal;
     private javax.swing.JComboBox<String> comboTamanho_DistUnif;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -956,13 +959,13 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDesvioP_DistBinomial;
-    private javax.swing.JLabel lblDesvioP_DistBinomial1;
-    private javax.swing.JLabel lblDesvioP_DistBinomial2;
+    private javax.swing.JLabel lblDesvioP_DistUnif;
     private javax.swing.JLabel lblMedia_DistBinomial;
-    private javax.swing.JLabel lblMedia_DistBinomial1;
+    private javax.swing.JLabel lblMedia_DistUnif;
     private javax.swing.JLabel lblProbabilidade_DistBinomial;
-    private javax.swing.JLabel lblProbabilidade_DistBinomial1;
     private javax.swing.JLabel lblProbabilidade_DistNormal;
+    private javax.swing.JLabel lblProbabilidade_DistUnif;
+    private javax.swing.JLabel lblVariancia_DistUnif;
     private javax.swing.JPanel panBinomial;
     private javax.swing.JPanel panDispersao;
     private javax.swing.JPanel panNormal;
@@ -970,21 +973,21 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panUniforme;
     private javax.swing.JTabbedPane tabDistribuicao;
     private javax.swing.JTabbedPane tabMedidas;
-    private javax.swing.JTextField txtCoefVariacao;
+    private javax.swing.JTextField txtCoefVariacao_Continua;
     private javax.swing.JTextField txtDesvioPadr_DistNormal;
-    private javax.swing.JTextField txtDesvioPadrao;
-    private javax.swing.JTextField txtMedia;
+    private javax.swing.JTextField txtDesvioPadrao_Continua;
+    private javax.swing.JTextField txtMaximo_DistUnif;
+    private javax.swing.JTextField txtMedia_Continua;
+    private javax.swing.JTextField txtMedia_DistUnif;
     private javax.swing.JTextField txtMedia_distNormal;
-    private javax.swing.JTextField txtMediana;
-    private javax.swing.JTextField txtModa;
+    private javax.swing.JTextField txtMediana_Continua;
+    private javax.swing.JTextField txtMinimo_DistUnif;
+    private javax.swing.JTextField txtModa_Continua;
+    private javax.swing.JTextField txtPonto1_DistUnif;
+    private javax.swing.JTextField txtPonto2_DistUnif;
     private javax.swing.JTextField txtValor1_DistNormal;
-    private javax.swing.JTextField txtValor1_DistNormal1;
-    private javax.swing.JTextField txtValor1_DistNormal2;
-    private javax.swing.JTextField txtValor1_DistNormal3;
     private javax.swing.JTextField txtValor2_DistNormal;
-    private javax.swing.JTextField txtValor2_DistNormal1;
-    private javax.swing.JTextField txtValor2_DistNormal2;
-    private javax.swing.JTextField txtVariancia;
+    private javax.swing.JTextField txtVariancia_Continua;
     private javax.swing.JTextField txt_K_DistBinomial;
     private javax.swing.JTextField txt_N_DistBinomial;
     private javax.swing.JTextField txt_P_DistBinomial;

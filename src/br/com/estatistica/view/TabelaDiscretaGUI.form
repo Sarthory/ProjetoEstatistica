@@ -466,10 +466,10 @@
                                   <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblMedia_DistBinomial" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblDesvioP_DistBinomial" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblProbabilidade_DistBinomial" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblProbabilidade_DistBinomial" pref="70" max="32767" attributes="0"/>
+                                  <Component id="lblMedia_DistBinomial" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblDesvioP_DistBinomial" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -763,15 +763,15 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblDesvioP_DistBinomial2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblMedia_DistBinomial1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblDesvioP_DistBinomial1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblProbabilidade_DistBinomial1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDesvioP_DistUnif" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMedia_DistUnif" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblVariancia_DistUnif" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblProbabilidade_DistUnif" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnLimpar_DistUniforme" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnLimpar_DistUnif" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnCalc_DistUniforme" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCalc_DistUnif" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -785,16 +785,16 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel24" min="-2" pref="64" max="-2" attributes="0"/>
-                                  <Component id="jComboBox3" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="comboPontos_DistUnif" min="-2" pref="170" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel25" min="-2" pref="82" max="-2" attributes="0"/>
-                                          <Component id="txtValor1_DistNormal1" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="txtMinimo_DistUnif" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel26" min="-2" pref="82" max="-2" attributes="0"/>
-                                          <Component id="txtValor2_DistNormal1" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="txtMaximo_DistUnif" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -802,16 +802,16 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel27" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="txtValor1_DistNormal2" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="txtPonto1_DistUnif" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel28" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="txtValor2_DistNormal2" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="txtPonto2_DistUnif" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="22" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtValor1_DistNormal3" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="txtMedia_DistUnif" min="-2" pref="70" max="-2" attributes="0"/>
                                   <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
@@ -833,7 +833,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboPontos_DistUnif" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -847,12 +847,12 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtValor1_DistNormal1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtMinimo_DistUnif" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtValor2_DistNormal1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtMaximo_DistUnif" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -863,46 +863,46 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtValor1_DistNormal2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPonto1_DistUnif" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtValor2_DistNormal2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPonto2_DistUnif" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtValor1_DistNormal3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtMedia_DistUnif" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblProbabilidade_DistBinomial1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblProbabilidade_DistUnif" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblMedia_DistBinomial1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMedia_DistUnif" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblDesvioP_DistBinomial1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblVariancia_DistUnif" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblDesvioP_DistBinomial2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDesvioP_DistUnif" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnCalc_DistUniforme" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnLimpar_DistUniforme" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCalc_DistUnif" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnLimpar_DistUnif" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -974,7 +974,7 @@
                 <Property name="text" type="java.lang.String" value="Pontos"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox3">
+            <Component class="javax.swing.JComboBox" name="comboPontos_DistUnif">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -989,7 +989,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLimpar_DistUniforme">
+            <Component class="javax.swing.JButton" name="btnLimpar_DistUnif">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>
@@ -1000,7 +1000,7 @@
                 <Property name="text" type="java.lang.String" value="Limpar"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCalc_DistUniforme">
+            <Component class="javax.swing.JButton" name="btnCalc_DistUnif">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="ff" red="99" type="rgb"/>
@@ -1025,7 +1025,7 @@
                 <Property name="text" type="java.lang.String" value="M&#xed;nimo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtValor1_DistNormal1">
+            <Component class="javax.swing.JTextField" name="txtMinimo_DistUnif">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>
@@ -1043,14 +1043,14 @@
                 <Property name="text" type="java.lang.String" value="M&#xe1;ximo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtValor2_DistNormal1">
+            <Component class="javax.swing.JTextField" name="txtMaximo_DistUnif">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtValor1_DistNormal2">
+            <Component class="javax.swing.JTextField" name="txtPonto1_DistUnif">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>
@@ -1079,7 +1079,7 @@
                 <Property name="text" type="java.lang.String" value="2&#xba; Ponto"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtValor2_DistNormal2">
+            <Component class="javax.swing.JTextField" name="txtPonto2_DistUnif">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>
@@ -1097,7 +1097,7 @@
                 <Property name="text" type="java.lang.String" value="M&#xe9;dia"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtValor1_DistNormal3">
+            <Component class="javax.swing.JTextField" name="txtMedia_DistUnif">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>
@@ -1115,7 +1115,7 @@
                 <Property name="text" type="java.lang.String" value="Probabilidade:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblProbabilidade_DistBinomial1">
+            <Component class="javax.swing.JLabel" name="lblProbabilidade_DistUnif">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>
@@ -1137,7 +1137,7 @@
                 <Property name="text" type="java.lang.String" value="M&#xe9;dia:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblMedia_DistBinomial1">
+            <Component class="javax.swing.JLabel" name="lblMedia_DistUnif">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>
@@ -1159,7 +1159,7 @@
                 <Property name="text" type="java.lang.String" value="Vari&#xe2;ncia:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblDesvioP_DistBinomial1">
+            <Component class="javax.swing.JLabel" name="lblVariancia_DistUnif">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>
@@ -1181,7 +1181,7 @@
                 <Property name="text" type="java.lang.String" value="Desvio Padr&#xe3;o:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblDesvioP_DistBinomial2">
+            <Component class="javax.swing.JLabel" name="lblDesvioP_DistUnif">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>
@@ -1236,11 +1236,11 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtMedia" min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="txtMedia_Discreta" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtModa" max="32767" attributes="0"/>
+                      <Component id="txtModa_Discreta" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtMediana" min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="txtMediana_Discreta" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1256,9 +1256,9 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtModa" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtMedia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtMediana" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtModa_Discreta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMedia_Discreta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMediana_Discreta" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="8" max="32767" attributes="0"/>
                   </Group>
@@ -1299,7 +1299,7 @@
                 <Property name="text" type="java.lang.String" value="Mediana"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtModa">
+            <Component class="javax.swing.JTextField" name="txtModa_Discreta">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1310,7 +1310,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtMedia">
+            <Component class="javax.swing.JTextField" name="txtMedia_Discreta">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1321,7 +1321,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtMediana">
+            <Component class="javax.swing.JTextField" name="txtMediana_Discreta">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1356,11 +1356,11 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtCoefVariacao" min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="txtCoefVariacao_Discreta" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtVariancia" max="32767" attributes="0"/>
+                      <Component id="txtVariancia_Discreta" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtDesvioPadrao" min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="txtDesvioPadrao_Discreta" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1376,9 +1376,9 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtVariancia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCoefVariacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtDesvioPadrao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtVariancia_Discreta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCoefVariacao_Discreta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDesvioPadrao_Discreta" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="8" max="32767" attributes="0"/>
                   </Group>
@@ -1397,7 +1397,7 @@
                 <Property name="text" type="java.lang.String" value="CV"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCoefVariacao">
+            <Component class="javax.swing.JTextField" name="txtCoefVariacao_Discreta">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1419,7 +1419,7 @@
                 <Property name="text" type="java.lang.String" value="Vari&#xe2;ncia"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtVariancia">
+            <Component class="javax.swing.JTextField" name="txtVariancia_Discreta">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1441,7 +1441,7 @@
                 <Property name="text" type="java.lang.String" value="Desvio Padr&#xe3;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtDesvioPadrao">
+            <Component class="javax.swing.JTextField" name="txtDesvioPadrao_Discreta">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
