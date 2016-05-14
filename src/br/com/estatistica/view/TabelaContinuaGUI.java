@@ -878,6 +878,39 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_N_DistBinomialActionPerformed
 
+    // ++++++++++++++++++   COMEÇO DOS ENABLE DISABLE +++++++++++++++++++++++++ //
+    
+    public void comboPosicao_DistNormalItemStateChanged (java.awt.event.ItemEvent evt)
+    {
+        if (comboPosicao_DistNormal.getSelectedIndex() == 0) // DESABILITA OS CAMPOS VALOR E BOTÃO CALCULAR
+        {
+            txtValor1_DistNormal.setEnabled(false);
+            txtValor2_DistNormal.setEnabled(false);
+            btnCalc_DistNormal.setEnabled(false);
+        }
+        
+        if (comboPosicao_DistNormal.getSelectedIndex() == 1) // HABILITA OS 2 CAMPOS
+        {
+            txtValor1_DistNormal.setEnabled(true);
+            txtValor2_DistNormal.setEnabled(true);
+            btnCalc_DistNormal.setEnabled(true); // Habilita botão calcular
+        }
+        
+        if (comboPosicao_DistNormal.getSelectedIndex() == 2) // HABILITA O VALOR 1
+        {
+            txtValor1_DistNormal.setEnabled(true);
+            txtValor2_DistNormal.setEnabled(false);
+            btnCalc_DistNormal.setEnabled(true);
+        }
+        
+        if (comboPosicao_DistNormal.getSelectedIndex() == 3)
+        {
+            txtValor1_DistNormal.setEnabled(true);
+            txtValor2_DistNormal.setEnabled(false);
+            btnCalc_DistNormal.setEnabled(true);
+        }
+    }
+        
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
