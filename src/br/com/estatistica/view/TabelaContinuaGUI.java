@@ -1,5 +1,6 @@
 package br.com.estatistica.view;
 
+import Utilitarios.limiteDigitosInteiros;
 import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -16,6 +17,7 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         URL iconURL = getClass().getResource("/br/com/estatistica/img/chart_bar.png");
         ImageIcon icon = new ImageIcon(iconURL);
         this.setIconImage(icon.getImage());
+        LimitaCamposTela();
     }
     
     public void addLinhas(ArrayList lista1, ArrayList lista2, ArrayList lista3, ArrayList lista4, ArrayList lista5){
@@ -1227,4 +1229,13 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txt_P_DistBinomial;
     private javax.swing.JTextField txt_Q_DistBinomial;
     // End of variables declaration//GEN-END:variables
+final void LimitaCamposTela(){
+         
+          txtMedia_distNormal.setDocument(new limiteDigitosInteiros(10));
+          txtDesvioPadr_DistNormal.setDocument(new limiteDigitosInteiros(10));
+          txtValor1_DistNormal.setDocument(new limiteDigitosInteiros(10));
+          txtValor2_DistNormal.setDocument(new limiteDigitosInteiros(10));
+          
+    }
+
 }
