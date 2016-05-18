@@ -8,6 +8,7 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
     AboutGUI AboutG;
     SeriesEstatisticasGUI SeriesEstatisticasG;
     TecnicasAmostragemGUI TecnicasAmostragemG;
+    DistGUI DistG;
     
     public MenuPrincipalGUI() {
         initComponents();
@@ -18,6 +19,7 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
         AboutG = new AboutGUI();
         SeriesEstatisticasG = new SeriesEstatisticasGUI();
         TecnicasAmostragemG  = new TecnicasAmostragemGUI();
+        DistG = new DistGUI();
         
     }
         
@@ -31,6 +33,7 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
         btnSobre = new javax.swing.JButton();
         btnSEstatisticas = new javax.swing.JButton();
         BtnTAmostragem = new javax.swing.JButton();
+        btnDist = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora Estatística");
@@ -70,7 +73,7 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
         btnSEstatisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/article.png"))); // NOI18N
         btnSEstatisticas.setText("Séries Estatisticas");
         btnSEstatisticas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnSEstatisticas.setIconTextGap(20);
+        btnSEstatisticas.setIconTextGap(5);
         btnSEstatisticas.setPreferredSize(new java.awt.Dimension(150, 50));
         btnSEstatisticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,10 +86,22 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
         BtnTAmostragem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/article.png"))); // NOI18N
         BtnTAmostragem.setText("Técnicas de Amostragem");
         BtnTAmostragem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        BtnTAmostragem.setIconTextGap(5);
         BtnTAmostragem.setPreferredSize(new java.awt.Dimension(150, 50));
         BtnTAmostragem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTAmostragemActionPerformed(evt);
+            }
+        });
+
+        btnDist.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnDist.setForeground(new java.awt.Color(0, 0, 0));
+        btnDist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/estatistica/img/article.png"))); // NOI18N
+        btnDist.setText("Distribuições");
+        btnDist.setIconTextGap(5);
+        btnDist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDistActionPerformed(evt);
             }
         });
 
@@ -95,25 +110,27 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSobre)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(44, 44, 44)
                 .addComponent(BtnTAmostragem, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addGap(18, 18, 18)
                 .addComponent(btnSEstatisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnDist, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSobre))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
+                .addGap(137, 137, 137)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSEstatisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnTAmostragem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSEstatisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addComponent(btnSobre)
+                    .addComponent(btnDist, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addComponent(btnSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -135,7 +152,7 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
                 .addComponent(BtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -159,6 +176,10 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
     private void BtnTAmostragemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTAmostragemActionPerformed
         TecnicasAmostragemG.setVisible(true);
     }//GEN-LAST:event_BtnTAmostragemActionPerformed
+
+    private void btnDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistActionPerformed
+        DistG.setVisible(true);
+    }//GEN-LAST:event_btnDistActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,6 +220,7 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnTAmostragem;
+    private javax.swing.JButton btnDist;
     private javax.swing.JButton btnSEstatisticas;
     private javax.swing.JButton btnSobre;
     private javax.swing.JPanel jPanel2;
