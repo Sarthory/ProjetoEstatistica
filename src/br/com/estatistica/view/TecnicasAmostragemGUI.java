@@ -1,7 +1,6 @@
 
 package br.com.estatistica.view;
 
-import Utilitarios.limiteDigitosInteiros;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
@@ -23,7 +22,6 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
        URL iconURL = getClass().getResource("/br/com/estatistica/img/chart_bar.png");
        ImageIcon icon = new ImageIcon(iconURL);
        this.setIconImage(icon.getImage());
-       LimitaCamposTela();
     }
 
     @SuppressWarnings("unchecked")
@@ -498,14 +496,5 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
                txtResultados.setText(txtResultados.getText() + ", " + caso);
            }
        }
-    }
-   final void LimitaCamposTela(){
-         
-          TextQtdAmostra.setDocument(new limiteDigitosInteiros(10));
-          TextQtdPopulacao.setDocument(new limiteDigitosInteiros(10));
-          TextQtdExtratos.setDocument(new limiteDigitosInteiros(10));
-          TextNumeroInicial.setDocument(new limiteDigitosInteiros(10));
-          
-    } 
-    
+    }    
 }
