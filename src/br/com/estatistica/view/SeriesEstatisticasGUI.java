@@ -1,6 +1,7 @@
 
 package br.com.estatistica.view;
 
+import Utilitarios.limiteDigitosInteiros;
 import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -34,6 +35,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         ListaQtdNumerosFPerc = new ArrayList<>();//LISTA COM A F PERCENTUAL DE CADA NUMERO DIGITADO
         TabelaContinuaG = new TabelaContinuaGUI();
        TabelaDiscretaG = new TabelaDiscretaGUI();
+       LimitaCamposTela();
     }
 
     @SuppressWarnings("unchecked")
@@ -431,4 +433,11 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
+    
+    final void LimitaCamposTela(){
+         
+          TextNumero.setDocument(new limiteDigitosInteiros(10));
+          
+          
+    }
 }
