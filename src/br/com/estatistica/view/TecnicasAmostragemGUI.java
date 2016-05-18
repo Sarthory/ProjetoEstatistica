@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import br.com.estatistica.util.LimiteDigitos;
 
 public class TecnicasAmostragemGUI extends javax.swing.JFrame {
 
@@ -22,6 +23,7 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
        URL iconURL = getClass().getResource("/br/com/estatistica/img/chart_bar.png");
        ImageIcon icon = new ImageIcon(iconURL);
        this.setIconImage(icon.getImage());
+       limitaDigitos();
     }
 
     @SuppressWarnings("unchecked")
@@ -32,13 +34,13 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         CbTAmostragem = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         BtnCalcular = new javax.swing.JButton();
-        TextQtdAmostra = new javax.swing.JTextField();
+        txtQuantAmostra = new javax.swing.JTextField();
         LblQtdAmostra = new javax.swing.JLabel();
-        TextQtdPopulacao = new javax.swing.JTextField();
+        txtQuantPopulacao = new javax.swing.JTextField();
         LblQtdPopulacao = new javax.swing.JLabel();
         LblQtdEstratos = new javax.swing.JLabel();
-        TextQtdExtratos = new javax.swing.JTextField();
-        TextNumeroInicial = new javax.swing.JTextField();
+        txtQuantEstratos = new javax.swing.JTextField();
+        txtNumInicial = new javax.swing.JTextField();
         LblNumeroInicial = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -91,20 +93,20 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
             }
         });
 
-        TextQtdAmostra.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        TextQtdAmostra.setToolTipText("se refere a quantidade  de uma parcela de um todo");
-        TextQtdAmostra.setEnabled(false);
-        TextQtdAmostra.setPreferredSize(new java.awt.Dimension(6, 30));
+        txtQuantAmostra.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtQuantAmostra.setToolTipText("se refere a quantidade  de uma parcela de um todo");
+        txtQuantAmostra.setEnabled(false);
+        txtQuantAmostra.setPreferredSize(new java.awt.Dimension(6, 30));
 
         LblQtdAmostra.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         LblQtdAmostra.setForeground(new java.awt.Color(0, 0, 0));
         LblQtdAmostra.setText("Quantidade da Amostra:");
         LblQtdAmostra.setEnabled(false);
 
-        TextQtdPopulacao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        TextQtdPopulacao.setToolTipText("Se refere a quantidade  total e não a uma parcela");
-        TextQtdPopulacao.setEnabled(false);
-        TextQtdPopulacao.setPreferredSize(new java.awt.Dimension(6, 30));
+        txtQuantPopulacao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtQuantPopulacao.setToolTipText("Se refere a quantidade  total e não a uma parcela");
+        txtQuantPopulacao.setEnabled(false);
+        txtQuantPopulacao.setPreferredSize(new java.awt.Dimension(6, 30));
 
         LblQtdPopulacao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         LblQtdPopulacao.setForeground(new java.awt.Color(0, 0, 0));
@@ -116,15 +118,15 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         LblQtdEstratos.setText("Quantidade de Estratos:");
         LblQtdEstratos.setEnabled(false);
 
-        TextQtdExtratos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        TextQtdExtratos.setToolTipText("Se refere a quantidade  total e não a uma parcela");
-        TextQtdExtratos.setEnabled(false);
-        TextQtdExtratos.setPreferredSize(new java.awt.Dimension(6, 30));
+        txtQuantEstratos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtQuantEstratos.setToolTipText("Se refere a quantidade  total e não a uma parcela");
+        txtQuantEstratos.setEnabled(false);
+        txtQuantEstratos.setPreferredSize(new java.awt.Dimension(6, 30));
 
-        TextNumeroInicial.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        TextNumeroInicial.setToolTipText("Se refere a quantidade  total e não a uma parcela");
-        TextNumeroInicial.setEnabled(false);
-        TextNumeroInicial.setPreferredSize(new java.awt.Dimension(6, 30));
+        txtNumInicial.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtNumInicial.setToolTipText("Se refere a quantidade  total e não a uma parcela");
+        txtNumInicial.setEnabled(false);
+        txtNumInicial.setPreferredSize(new java.awt.Dimension(6, 30));
 
         LblNumeroInicial.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         LblNumeroInicial.setForeground(new java.awt.Color(0, 0, 0));
@@ -167,11 +169,11 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
                     .addComponent(LblQtdAmostra)
                     .addComponent(LblQtdPopulacao)
                     .addComponent(jLabel4)
-                    .addComponent(TextQtdExtratos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TextQtdPopulacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TextQtdAmostra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtQuantEstratos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtQuantPopulacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtQuantAmostra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CbTAmostragem, 0, 250, Short.MAX_VALUE)
-                    .addComponent(TextNumeroInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNumInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(BtnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -205,19 +207,19 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(LblQtdAmostra)
                         .addGap(5, 5, 5)
-                        .addComponent(TextQtdAmostra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtQuantAmostra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LblQtdPopulacao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TextQtdPopulacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtQuantPopulacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LblQtdEstratos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TextQtdExtratos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtQuantEstratos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LblNumeroInicial)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TextNumeroInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNumInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -259,13 +261,13 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
          if(CbTAmostragem.getSelectedIndex()== 0){
 
           // desabilita
-          TextQtdAmostra.setEnabled(false);
-          TextQtdPopulacao.setEnabled(false);
+          txtQuantAmostra.setEnabled(false);
+          txtQuantPopulacao.setEnabled(false);
           LblQtdAmostra.setEnabled(false);
           LblQtdPopulacao.setEnabled(false);
-          TextQtdExtratos.setEnabled(false);
+          txtQuantEstratos.setEnabled(false);
           LblQtdEstratos.setEnabled(false);
-          TextNumeroInicial.setEnabled(false);
+          txtNumInicial.setEnabled(false);
           LblNumeroInicial.setEnabled(false);
           BtnCalcular.setEnabled(false);
         }
@@ -273,66 +275,66 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         if(CbTAmostragem.getSelectedIndex()== 1){
 
           // habilita
-          TextQtdAmostra.setEnabled(true);
-          TextQtdPopulacao.setEnabled(true);
+          txtQuantAmostra.setEnabled(true);
+          txtQuantPopulacao.setEnabled(true);
           LblQtdAmostra.setEnabled(true);
           LblQtdPopulacao.setEnabled(true);
-          TextQtdAmostra.requestFocus();
+          txtQuantAmostra.requestFocus();
           BtnCalcular.setEnabled(true);
 
           // desabilita
-          TextQtdExtratos.setEnabled(false);
+          txtQuantEstratos.setEnabled(false);
           LblQtdEstratos.setEnabled(false);
-          TextNumeroInicial.setEnabled(false);
+          txtNumInicial.setEnabled(false);
           LblNumeroInicial.setEnabled(false);
         }
 
         if(CbTAmostragem.getSelectedIndex()== 2){
          // habilita
-          TextQtdAmostra.setEnabled(true);
-          TextQtdPopulacao.setEnabled(true);
-          TextQtdExtratos.setEnabled(true);
+          txtQuantAmostra.setEnabled(true);
+          txtQuantPopulacao.setEnabled(true);
+          txtQuantEstratos.setEnabled(true);
           LblQtdAmostra.setEnabled(true);
           LblQtdPopulacao.setEnabled(true);
           LblQtdEstratos.setEnabled(true);
-          TextQtdAmostra.requestFocus();
+          txtQuantAmostra.requestFocus();
           BtnCalcular.setEnabled(true);
 
            // desabilita
 
-          TextNumeroInicial.setEnabled(false);
+          txtNumInicial.setEnabled(false);
           LblNumeroInicial.setEnabled(false);
 
         }
         if(CbTAmostragem.getSelectedIndex()== 3){
-          TextQtdAmostra.setEnabled(true);
-          TextQtdExtratos.setEnabled(true);
+          txtQuantAmostra.setEnabled(true);
+          txtQuantEstratos.setEnabled(true);
           LblQtdAmostra.setEnabled(true);
           LblQtdEstratos.setEnabled(true);
-          TextQtdAmostra.requestFocus();
+          txtQuantAmostra.requestFocus();
           BtnCalcular.setEnabled(true);
 
            // desabilita
-          TextQtdPopulacao.setEnabled(false);
+          txtQuantPopulacao.setEnabled(false);
           LblQtdPopulacao.setEnabled(false);
-          TextNumeroInicial.setEnabled(false);
+          txtNumInicial.setEnabled(false);
           LblNumeroInicial.setEnabled(false);
         }
 
 
          if(CbTAmostragem.getSelectedIndex()== 4){
           //habilita
-          TextQtdAmostra.setEnabled(true);
-          TextQtdPopulacao.setEnabled(true);
-          TextNumeroInicial.setEnabled(true);
+          txtQuantAmostra.setEnabled(true);
+          txtQuantPopulacao.setEnabled(true);
+          txtNumInicial.setEnabled(true);
           LblQtdAmostra.setEnabled(true);
           LblQtdPopulacao.setEnabled(true);
           LblNumeroInicial.setEnabled(true);
-          TextQtdAmostra.requestFocus();
+          txtQuantAmostra.requestFocus();
           BtnCalcular.setEnabled(true);
 
            // desabilita
-          TextQtdExtratos.setEnabled(false);
+          txtQuantEstratos.setEnabled(false);
           LblQtdEstratos.setEnabled(false);
 
 
@@ -343,10 +345,10 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         txtResultados.setText("");
-        TextQtdAmostra.setText("");
-        TextQtdPopulacao.setText("");
-        TextQtdExtratos.setText("");
-        TextNumeroInicial.setText("");
+        txtQuantAmostra.setText("");
+        txtQuantPopulacao.setText("");
+        txtQuantEstratos.setText("");
+        txtNumInicial.setText("");
         CbTAmostragem.setSelectedIndex(0);
     }//GEN-LAST:event_btnLimparActionPerformed
 
@@ -381,15 +383,15 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
     private javax.swing.JLabel LblQtdAmostra;
     private javax.swing.JLabel LblQtdEstratos;
     private javax.swing.JLabel LblQtdPopulacao;
-    private javax.swing.JTextField TextNumeroInicial;
-    private javax.swing.JTextField TextQtdAmostra;
-    private javax.swing.JTextField TextQtdExtratos;
-    private javax.swing.JTextField TextQtdPopulacao;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtNumInicial;
+    private javax.swing.JTextField txtQuantAmostra;
+    private javax.swing.JTextField txtQuantEstratos;
+    private javax.swing.JTextField txtQuantPopulacao;
     private javax.swing.JTextArea txtResultados;
     // End of variables declaration//GEN-END:variables
 
@@ -398,8 +400,8 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
         txtResultados.setText("");
         aleatSimples.clear();
 
-        NumeroInicial = Integer.parseInt(TextQtdAmostra.getText());
-        QtdPopulacao = Integer.parseInt(TextQtdPopulacao.getText());
+        NumeroInicial = Integer.parseInt(txtQuantAmostra.getText());
+        QtdPopulacao = Integer.parseInt(txtQuantPopulacao.getText());
 
         Random rand = new Random();
 
@@ -422,9 +424,9 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
 
        String quantEstrato;
 
-       String amos = TextQtdAmostra.getText();
-       String estrato = TextQtdExtratos.getText();
-       String popul = TextQtdPopulacao.getText();
+       String amos = txtQuantAmostra.getText();
+       String estrato = txtQuantEstratos.getText();
+       String popul = txtQuantPopulacao.getText();
 
        float amostFloat = Float.parseFloat(amos);
        float estratFloat = Float.parseFloat(estrato);
@@ -460,8 +462,8 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
     {
         txtResultados.setText("");
 
-        QtdAmostra = Integer.parseInt(TextQtdAmostra.getText());
-        estrat = Integer.parseInt(TextQtdExtratos.getText());
+        QtdAmostra = Integer.parseInt(txtQuantAmostra.getText());
+        estrat = Integer.parseInt(txtQuantEstratos.getText());
 
         int result = QtdAmostra / estrat;
 
@@ -473,9 +475,9 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
        txtResultados.setText("");
        int i;
 
-       String amos = TextQtdAmostra.getText();
-       String popul = TextQtdPopulacao.getText();
-       String numInic = TextNumeroInicial.getText();
+       String amos = txtQuantAmostra.getText();
+       String popul = txtQuantPopulacao.getText();
+       String numInic = txtNumInicial.getText();
 
        float amostFloat = Float.parseFloat(amos);
        float populFloat = Float.parseFloat(popul);
@@ -496,5 +498,13 @@ public class TecnicasAmostragemGUI extends javax.swing.JFrame {
                txtResultados.setText(txtResultados.getText() + ", " + caso);
            }
        }
+    }
+    
+    private void limitaDigitos()
+    {
+        txtNumInicial.setDocument(new LimiteDigitos(30));
+        txtQuantAmostra.setDocument(new LimiteDigitos(30));
+        txtQuantEstratos.setDocument(new LimiteDigitos(30));
+        txtQuantPopulacao.setDocument(new LimiteDigitos(30));
     }
 }

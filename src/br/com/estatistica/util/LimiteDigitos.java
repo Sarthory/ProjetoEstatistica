@@ -1,14 +1,14 @@
-package Utilitarios;
+package br.com.estatistica.util;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
-public class limiteDigitosInteiros extends PlainDocument{
+public class LimiteDigitos extends PlainDocument{
    
     private int quantidadeMax;
     
-public limiteDigitosInteiros(int maxLen) {
+public LimiteDigitos(int maxLen) {
     
     super();
     if(maxLen <= 0)
@@ -24,7 +24,7 @@ public void insertString(int offset, String str, AttributeSet attr)throws BadLoc
     int totalquantia=(getLength()+ str.length());
     if(totalquantia<= quantidadeMax){
     
-        super.insertString(offset, str.toUpperCase().replaceAll("[^0-9 |^. ]",""), attr);
+        super.insertString(offset, str.toUpperCase().replaceAll("[^0-9 |^.]",""), attr);
         return;
     }
     String nova = str.substring(0,getLength()- quantidadeMax);

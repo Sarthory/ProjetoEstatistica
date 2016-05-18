@@ -36,11 +36,11 @@
                   <Component id="LblQtdAmostra" min="-2" max="-2" attributes="0"/>
                   <Component id="LblQtdPopulacao" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="TextQtdExtratos" alignment="0" max="32767" attributes="0"/>
-                  <Component id="TextQtdPopulacao" alignment="0" max="32767" attributes="0"/>
-                  <Component id="TextQtdAmostra" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtQuantEstratos" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtQuantPopulacao" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtQuantAmostra" alignment="0" max="32767" attributes="0"/>
                   <Component id="CbTAmostragem" alignment="0" pref="250" max="32767" attributes="0"/>
-                  <Component id="TextNumeroInicial" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtNumInicial" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="BtnCalcular" min="-2" pref="170" max="-2" attributes="0"/>
@@ -84,19 +84,19 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="LblQtdAmostra" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="TextQtdAmostra" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtQuantAmostra" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="LblQtdPopulacao" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TextQtdPopulacao" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtQuantPopulacao" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="LblQtdEstratos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TextQtdExtratos" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtQuantEstratos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="LblNumeroInicial" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TextNumeroInicial" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNumInicial" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
@@ -193,7 +193,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCalcularActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="TextQtdAmostra">
+    <Component class="javax.swing.JTextField" name="txtQuantAmostra">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="1"/>
@@ -217,7 +217,7 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TextQtdPopulacao">
+    <Component class="javax.swing.JTextField" name="txtQuantPopulacao">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="1"/>
@@ -253,7 +253,7 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TextQtdExtratos">
+    <Component class="javax.swing.JTextField" name="txtQuantEstratos">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="1"/>
@@ -265,7 +265,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TextNumeroInicial">
+    <Component class="javax.swing.JTextField" name="txtNumInicial">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="1"/>

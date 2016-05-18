@@ -2,6 +2,7 @@ package br.com.estatistica.view;
 
 import java.net.URL;
 import javax.swing.ImageIcon;
+import br.com.estatistica.util.LimiteDigitos;
 
 /**
  *
@@ -15,6 +16,7 @@ public class DistGUI extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(iconURL);
         this.setIconImage(icon.getImage());
         this.setLocationRelativeTo(null);
+        limitaDigitos();
     }
 
     @SuppressWarnings("unchecked")
@@ -974,4 +976,23 @@ public class DistGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txt_P_DistBinomial;
     private javax.swing.JTextField txt_Q_DistBinomial;
     // End of variables declaration//GEN-END:variables
+    
+    private void limitaDigitos()
+    {
+        txtDesvioPadr_DistNormal.setDocument(new LimiteDigitos(30));
+        txtMedia_distNormal.setDocument(new LimiteDigitos(30));
+        txtValor1_DistNormal.setDocument(new LimiteDigitos(30));
+        txtValor2_DistNormal.setDocument(new LimiteDigitos(30));
+        
+        txt_N_DistBinomial.setDocument(new LimiteDigitos(30));
+        txt_P_DistBinomial.setDocument(new LimiteDigitos(30));
+        txt_Q_DistBinomial.setDocument(new LimiteDigitos(30));
+        txt_K_DistBinomial.setDocument(new LimiteDigitos(30));
+        
+        txtPonto1_DistUnif.setDocument(new LimiteDigitos(30));
+        txtPonto2_DistUnif.setDocument(new LimiteDigitos(30));
+        txtMinimo_DistUnif.setDocument(new LimiteDigitos(30));
+        txtMaximo_DistUnif.setDocument(new LimiteDigitos(30));
+        txtMedia_DistUnif.setDocument(new LimiteDigitos(30));
+    }
 }

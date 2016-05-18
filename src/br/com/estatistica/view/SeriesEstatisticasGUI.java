@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import br.com.estatistica.util.LimiteDigitos;
 
 public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     
@@ -33,7 +34,8 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         ListaQtdNumerosF = new ArrayList<>();//LISTA COM F DE CADA NUMERO DIGITADO
         ListaQtdNumerosFPerc = new ArrayList<>();//LISTA COM A F PERCENTUAL DE CADA NUMERO DIGITADO
         TabelaContinuaG = new TabelaContinuaGUI();
-       TabelaDiscretaG = new TabelaDiscretaGUI();
+        TabelaDiscretaG = new TabelaDiscretaGUI();
+        limitaDigitos();
     }
 
     @SuppressWarnings("unchecked")
@@ -106,6 +108,11 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         txtEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEntradaActionPerformed(evt);
+            }
+        });
+        txtEntrada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEntradaKeyTyped(evt);
             }
         });
 
@@ -351,7 +358,11 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         ListaQtdNumerosFPerc.toString());
         btnProcessar.setEnabled(true);
         BtnGerarFrenquencia.setEnabled(false);
+        txtEntrada.setEnabled(false);
+        BtnContinuar.setEnabled(false);
         btnProcessar.requestFocus();
+        ComboColeta.setEnabled(false);
+        ComboVariavel.setEnabled(false);
         }
     }//GEN-LAST:event_BtnGerarFrenquenciaActionPerformed
 
@@ -360,9 +371,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         if (ComboVariavel.getSelectedIndex() != 0)
         {
             txtEntrada.setEnabled(true);
-            BtnContinuar.setEnabled(true);
             txtEntrada.requestFocus();
-            
         }
     }//GEN-LAST:event_ComboVariavelItemStateChanged
 
@@ -376,12 +385,15 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         BtnGerarFrenquencia.setEnabled(false);
         btnProcessar.setEnabled(false);
         txtEntrada.setEnabled(false);
+        txtEntrada.setText("");
         ListaDeNumeros.clear();
         ListaDeNumerosXI.clear();
         ListaQtdNumerosF.clear();
         ListaQtdNumerosFI.clear();
         ListaQtdNumerosFPerc.clear();
-        ListaQtdNumerosFrPerc.clear();        
+        ListaQtdNumerosFrPerc.clear();
+        ComboColeta.setEnabled(true);
+        ComboVariavel.setEnabled(true);
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void ComboColetaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboColetaItemStateChanged
@@ -390,6 +402,10 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
             txtEntrada.requestFocus();
         }
     }//GEN-LAST:event_ComboColetaItemStateChanged
+
+    private void txtEntradaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEntradaKeyTyped
+        BtnContinuar.setEnabled(true);
+    }//GEN-LAST:event_txtEntradaKeyTyped
 
     public static void main(String args[]) {
         try {
@@ -442,4 +458,8 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     private javax.swing.JTextPane txtSaida;
     // End of variables declaration//GEN-END:variables
 
+    private void limitaDigitos()
+    {
+        txtEntrada.setDocument(new LimiteDigitos(30));
+    }
 }
