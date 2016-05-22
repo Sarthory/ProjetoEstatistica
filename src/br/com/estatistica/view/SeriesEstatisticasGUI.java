@@ -1,11 +1,14 @@
 
 package br.com.estatistica.view;
 
+import br.com.estatistica.controller.TabelaContinua;
+import br.com.estatistica.controller.TabelaDiscreta;
 import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import br.com.estatistica.util.LimiteDigitos;
+import java.util.List;
 
 public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     
@@ -71,6 +74,11 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         setExtendedState(6);
         setFocusable(false);
         setResizable(false);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         BtnContinuar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnContinuar.setForeground(new java.awt.Color(0, 0, 0));
@@ -118,6 +126,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
 
         txtSaida.setEditable(false);
         txtSaida.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtSaida.setName("txtSaida"); // NOI18N
         jScrollPane1.setViewportView(txtSaida);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -179,17 +188,23 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
 
         ComboVariavel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ComboVariavel.setForeground(new java.awt.Color(0, 0, 0));
-        ComboVariavel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Discreta", "Contínua" }));
+        ComboVariavel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Discreta", "Contínua" }));
         ComboVariavel.setToolTipText("Selecione o tipo de variável Discreta ou Contínua");
+        ComboVariavel.setName("selectVariable"); // NOI18N
         ComboVariavel.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ComboVariavelItemStateChanged(evt);
             }
         });
+        ComboVariavel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboVariavelActionPerformed(evt);
+            }
+        });
 
         ComboColeta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ComboColeta.setForeground(new java.awt.Color(0, 0, 0));
-        ComboColeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Amostra", "População" }));
+        ComboColeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Amostra", "População" }));
         ComboColeta.setToolTipText("Selecione o tipo de coleta População ou Amostra");
         ComboColeta.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -308,18 +323,18 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         else{
             i+= 1;
             LblResult.setText(Integer.toString(i));
-        }
-        
-        //HABILITA BOTÃO ORDENAR
-        BtnGerarFrenquencia.setEnabled(true);
-        
-        //ACRESCENTA NUMERO DIGITADO CASO VALIDO NA LISTA ListaDeNumeros
-        ListaDeNumeros.add(Double.parseDouble(txtEntrada.getText()));
-               
-       //ADICIONA AS LISTA NO PAINEL DE TEXTO
-       txtSaida.setText(ListaDeNumeros.toString() + "\n\n" + ListaDeNumerosXI.toString());
-       txtEntrada.setText("");
-       txtEntrada.requestFocus();
+            
+            //HABILITA BOTÃO ORDENAR
+            BtnGerarFrenquencia.setEnabled(true);
+
+            //ACRESCENTA NUMERO DIGITADO CASO VALIDO NA LISTA ListaDeNumeros
+            ListaDeNumeros.add(Double.parseDouble(txtEntrada.getText()));
+
+           //ADICIONA AS LISTA NO PAINEL DE TEXTO
+           txtSaida.setText(ListaDeNumeros.toString() + "\n\n" + ListaDeNumerosXI.toString());
+           txtEntrada.setText("");
+           txtEntrada.requestFocus();
+       }
     }//GEN-LAST:event_BtnContinuarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -345,24 +360,82 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
 
     private void BtnGerarFrenquenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGerarFrenquenciaActionPerformed
 
+        TabelaDiscreta tabelaDiscreta = new TabelaDiscreta();
+        TabelaContinua tabelaContinua = new  TabelaContinua();
+        
         if (ComboColeta.getSelectedIndex() == 0 || ComboVariavel.getSelectedIndex() == 0)
         {
             JOptionPane.showMessageDialog(null, "Por favor selecione o tipo de variável e coleta!", "Tipos de Coleta", 2);
-        }
-        else
-        {
-        txtSaida.setText(txtSaida.getText() + "\n\n" + 
-        ListaQtdNumerosFI.toString() + "\n\n FR% - " + 
-        ListaQtdNumerosFrPerc.toString() + "\n\n F - " +
-        ListaQtdNumerosF.toString() + "\n\n F% - " +
-        ListaQtdNumerosFPerc.toString());
-        btnProcessar.setEnabled(true);
-        BtnGerarFrenquencia.setEnabled(false);
-        txtEntrada.setEnabled(false);
-        BtnContinuar.setEnabled(false);
-        btnProcessar.requestFocus();
-        ComboColeta.setEnabled(false);
-        ComboVariavel.setEnabled(false);
+        }else{
+            
+            if((ComboVariavel.getSelectedItem()).equals("Discreta")){
+                
+                if((ComboColeta.getSelectedItem()).equals("Amostra")){
+                    tabelaDiscreta.setAmostra(true);
+                }else{
+                    tabelaDiscreta.setPopulacao(false);
+                }
+                
+                tabelaDiscreta.setLista_rol(ListaDeNumeros);
+                tabelaDiscreta.geraDados();
+                
+                txtSaida.setText(                        
+                "Rol = " + tabelaDiscreta.getLista_Rol().toString() + "\n" +
+                "xi = " + tabelaDiscreta.getLista_xi() + "\n" +
+                "fi = " + tabelaDiscreta.getLista_fi() + "\n" +
+                "fr% = " + tabelaDiscreta.getLista_frPorcentual() + "\n" +
+                "F = " + tabelaDiscreta.getLista_F() + "\n" +
+                "F% = " + tabelaDiscreta.getLista_FPorcentual() + "\n" +
+                "xi*fi = " + tabelaDiscreta.getLista_XiFi() + "\n" +
+                "Xi - media * fi = " + tabelaDiscreta.getLista_xixfi() + "\n" +
+                "Média = " + tabelaDiscreta.getMedia() + "\n" +
+                "Moda = " + tabelaDiscreta.getModa() + "\n" +
+                "Mediana = " + tabelaDiscreta.getMediana() + "\n" +                
+                "Variância = " + tabelaDiscreta.getVariancia() + "\n" +
+                "Desvio Padrão = " + tabelaDiscreta.getDesvioPadrao() + "\n" +
+                "Coeficiente de variação = " + tabelaDiscreta.getCoeficienteVariacao());
+                
+            }else{
+                if((ComboColeta.getSelectedItem()).equals("Amostra")){
+                    tabelaContinua.setAmostra(true);
+                }else{
+                    tabelaContinua.setPopulacao(false);
+                }
+                
+                tabelaContinua.setLista_rol(ListaDeNumeros);
+                tabelaContinua.geraDados();
+                
+                txtSaida.setText(                        
+                "Rol = " + tabelaContinua.getLista_Rol().toString() + "\n" +
+                "classes = " + tabelaContinua.getClasses() + "\n" +
+                "periodos = " + tabelaContinua.getPeriodo() + "\n" +
+                "fi = " + tabelaContinua.getLista_fi() + "\n" +
+                "fr% = " + tabelaContinua.getLista_frPorcentual() + "\n" +
+                "F = " + tabelaContinua.getLista_F() + "\n" +
+                "F% = " + tabelaContinua.getLista_FPorcentual() + "\n" +
+                "xi = " + tabelaContinua.getLista_xi() + "\n" +
+                "xi*fi = " + tabelaContinua.getLista_XiFi() + "\n" +
+                "Xi - media * fi = " + tabelaContinua.getLista_xixfi() + "\n" +
+                "Média = " + tabelaContinua.getMedia() + "\n" +
+                "Moda = " + tabelaContinua.getModa() + "\n" +
+                "Mediana = " + tabelaContinua.getMediana() + "\n" +                
+                "Variância = " + tabelaContinua.getVariancia() + "\n" +
+                "Desvio Padrão = " + tabelaContinua.getDesvioPadrao() + "\n" +
+                "Coeficiente de variação = " + tabelaContinua.getCoeficienteVariacao());
+            }
+//            txtSaida.setText(txtSaida.getText() + "oi \n\n" + 
+//            ListaQtdNumerosFI.toString() + "\n\n FR% - " + 
+//            ListaQtdNumerosFrPerc.toString() + "\n\n F - " +
+//            ListaQtdNumerosF.toString() + "\n\n F% - " +
+//            ListaQtdNumerosFPerc.toString());
+
+            btnProcessar.setEnabled(true);
+            BtnGerarFrenquencia.setEnabled(false);
+            txtEntrada.setEnabled(false);
+            BtnContinuar.setEnabled(false);
+            btnProcessar.requestFocus();
+            ComboColeta.setEnabled(false);
+            ComboVariavel.setEnabled(false);
         }
     }//GEN-LAST:event_BtnGerarFrenquenciaActionPerformed
 
@@ -406,6 +479,15 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     private void txtEntradaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEntradaKeyTyped
         BtnContinuar.setEnabled(true);
     }//GEN-LAST:event_txtEntradaKeyTyped
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        List<Double> rol = new ArrayList<>();
+    }//GEN-LAST:event_formComponentShown
+
+    private void ComboVariavelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboVariavelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboVariavelActionPerformed
 
     public static void main(String args[]) {
         try {

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-abstract class Tabela {
+public class Tabela {
     
     //DECLARAÇÃO DAS LISTAS QUE SERÃO UTILIZADAS PELAS CLASSES FILHAS ListaContinua E ListaDiscreta
     private Boolean populacao = false;
@@ -30,10 +30,9 @@ abstract class Tabela {
     private Double variancia;
     private Double desvioPadrao;
     private Double coeficienteVariacao;
+    private Double distribuicaoNormal;
+    private List<Double> listaDistribuicaoNormal;
     
-    
-    
-     
     
     /******************************************************  
     *   MÉTODOS ABSTRATOS DELEGANDO
@@ -41,12 +40,11 @@ abstract class Tabela {
     *   A RESPONSABILIDADE DE IMPLEMENTAR O MÉTODO
     *   VISTO QUE PARA CADA LISTA O ALGORITMO É DIFERENTE
     *******************************************************/
-    public abstract void setLista_xi();
-    public abstract void geraDados();
-    
-    
-    
-    
+    public void setLista_xi(){};
+    public void geraDados(){};
+    public void setMediana(){};
+    public void setLista_fi(){};
+     
     
      /******************************************************
      *  CRIA TODAS AS LISTAS DO TIPO ARRAYLIST
@@ -62,7 +60,8 @@ abstract class Tabela {
         this.lista_FPorcentual = new ArrayList<>();
         this.lista_xifi = new ArrayList<>();
         this.lista_xixfi = new ArrayList<>();
-        this.moda = new ArrayList<>();
+        this.moda = new ArrayList<>();   
+        this.listaDistribuicaoNormal = new ArrayList<>();
     }
     
     //MÉTODO PARA RETORNA VALOR DO ATRIBUTO populacao
@@ -95,8 +94,8 @@ abstract class Tabela {
     }
     
     //MÉTODO PARA PREENCHIMENTO DO ROL
-    public void addLista_rol(Double num){
-        listaRol.add(num);
+    public void setLista_rol(List lista){
+        this.listaRol = lista;
         Collections.sort(this.listaRol);
     }
     
@@ -121,8 +120,6 @@ abstract class Tabela {
         return this.lista_fi;
     }
     
-    //MÉTODO PARA SETAR A LISTA_FI PARA UTILIZAÇÃO
-    public abstract void setLista_fi();
     
     //MÉTODO PARA ADICIONA ITENS NA LISTA_XI PARA UTILIZAÇÃO
     public void addLista_fi(Integer i, Integer num){
@@ -313,13 +310,29 @@ abstract class Tabela {
     
     
     
-    //MÉTODO ABSTRATO DELGANDO PARA CLASSES FILHAS PARA CALCULAR A MEDIANA
-    public abstract void setMediana();
-    
     //MÉTODO ABSTRATO DELGANDO PARA CLASSES FILHAS PARA RETORNAR A MEDIANA
     public Double getMediana(){
         return this.mediana;
     }
     
+    //RECEBE NUMEROS PARA CALCULO DA DISTRIBUIÇÃO NORMAL
+    public void addListaDistribuicaoNormal(Double num){
+        this.listaDistribuicaoNormal.add(num);
+    }
+    
+    //FUNÇÃO CALCULA NUM DISTRIBUIÇÃO NORMAL
+    public Double calculoNumDistribuicaoNormal(Double numero){
+        Double z = (numero - this.media)/this.desvioPadrao;
+        return z;
+    }
+    
+    //MÉTODO QUE SETA O VALOR DA DISTRIBUIÇÃO NORMAL
+    public void setDistribuicaoNormal(){
+         
+    }
+    //MÉTODO QUE RETORNA O VALOR DA DISTRIBUIÇÃO NORMAL
+    public Double getDistribuicaoNormal(){
+        return this.distribuicaoNormal;
+    }
     
 }

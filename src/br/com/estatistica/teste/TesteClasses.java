@@ -79,26 +79,26 @@ public class TesteClasses {
 
 
         //DADOS PARA TESTE COM VARIAVEL CONTINUA
-        teste.addLista_rol(20.00);
-        teste.addLista_rol(37.00);
-        teste.addLista_rol(40.00);
-        teste.addLista_rol(32.00);
-        teste.addLista_rol(28.00);
-        teste.addLista_rol(26.00);
-        teste.addLista_rol(25.00);
-        teste.addLista_rol(32.00);
-        teste.addLista_rol(39.00);
-        teste.addLista_rol(40.00);
-        teste.addLista_rol(50.00);
-        teste.addLista_rol(47.00);
-        teste.addLista_rol(46.00);
-        teste.addLista_rol(31.00);
-        teste.addLista_rol(24.00);
-        teste.addLista_rol(21.00);
-        teste.addLista_rol(35.00);
-        teste.addLista_rol(39.00);
-        teste.addLista_rol(38.00);
-        teste.addLista_rol(43.00);
+//        teste.addLista_rol(20.00);
+//        teste.addLista_rol(37.00);
+//        teste.addLista_rol(40.00);
+//        teste.addLista_rol(32.00);
+//        teste.addLista_rol(28.00);
+//        teste.addLista_rol(26.00);
+//        teste.addLista_rol(25.00);
+//        teste.addLista_rol(32.00);
+//        teste.addLista_rol(39.00);
+//        teste.addLista_rol(40.00);
+//        teste.addLista_rol(50.00);
+//        teste.addLista_rol(47.00);
+//        teste.addLista_rol(46.00);
+//        teste.addLista_rol(31.00);
+//        teste.addLista_rol(24.00);
+//        teste.addLista_rol(21.00);
+//        teste.addLista_rol(35.00);
+//        teste.addLista_rol(39.00);
+//        teste.addLista_rol(38.00);
+//        teste.addLista_rol(43.00);
         
         
         teste.geraDados();

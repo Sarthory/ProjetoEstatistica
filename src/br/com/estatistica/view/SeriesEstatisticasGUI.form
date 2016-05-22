@@ -30,6 +30,9 @@
     <SyntheticProperty name="generateSize" type="boolean" value="true"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentShown"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -238,6 +241,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="1"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="txtSaida" noResource="true"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -373,15 +377,17 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value=" "/>
+            <StringItem index="0" value=""/>
             <StringItem index="1" value="Discreta"/>
             <StringItem index="2" value="Cont&#xed;nua"/>
           </StringArray>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Selecione o tipo de vari&#xe1;vel Discreta ou Cont&#xed;nua"/>
+        <Property name="name" type="java.lang.String" value="selectVariable" noResource="true"/>
       </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="ComboVariavelItemStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboVariavelActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -397,7 +403,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value=" "/>
+            <StringItem index="0" value=""/>
             <StringItem index="1" value="Amostra"/>
             <StringItem index="2" value="Popula&#xe7;&#xe3;o"/>
           </StringArray>

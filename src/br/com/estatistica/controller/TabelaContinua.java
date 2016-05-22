@@ -122,7 +122,7 @@ public class TabelaContinua extends Tabela{
     
     
     //MÉTODO PARA RETORNO DA LISTA DE CLASSES
-    public List getClases(){        
+    public List getClasses(){        
         return this.Classes;
     }
     
