@@ -1,7 +1,9 @@
 package br.com.estatistica.view;
 
+import br.com.estatistica.controller.TabelaDiscreta;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
@@ -10,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Felipe Sartori
  */
 public class TabelaDiscretaGUI extends javax.swing.JFrame {
+    TabelaDiscreta tabela;
 
     DistGUI DistG;
     
@@ -22,7 +25,19 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         DistG = new DistGUI();
     }
     
-    public void addLinhas(ArrayList lista1, ArrayList lista2, ArrayList lista3, ArrayList lista4, ArrayList lista5){
+    public void geraDados(){
+        txtMedia_Discreta.setText(Double.toString(tabela.getMedia()));
+        txtMediana_Discreta.setText(Double.toString(tabela.getMediana()));
+        txtModa_Discreta.setText((tabela.getModa()).toString());
+        txtCoefVariacao_Discreta.setText(Double.toString(tabela.getCoeficienteVariacao()));
+        txtVariancia_Discreta.setText(Double.toString(tabela.getVariancia()));
+        txtDesvioPadrao_Discreta.setText(Double.toString(tabela.getDesvioPadrao()));
+    }
+    
+    public void setTabela(TabelaDiscreta tabela){
+        this.tabela = tabela;
+    }
+    public void addLinhas(List lista1, List lista2, List lista3, List lista4, List lista5, List lista6, List lista7){
         
         DefaultTableModel model = (DefaultTableModel) TabelaDiscreta.getModel();
         
@@ -33,6 +48,8 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
             listas.add(lista3.get(count));
             listas.add(lista4.get(count));
             listas.add(lista5.get(count));
+            listas.add(lista6.get(count));
+            listas.add(lista7.get(count));
             Object[] linha = listas.toArray();
             model.addRow(linha);
         }
@@ -75,11 +92,11 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "xi", "fi", "F", "Fr%", "F%", "xi.fi", "Variância"
+                "xi", "fi", "F", "Fr%", "F%", "xi.fi", "(xi-X)².fi"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -96,6 +113,11 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         txtMedia_Discreta.setEditable(false);
         txtMedia_Discreta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtMedia_Discreta.setForeground(new java.awt.Color(0, 0, 0));
+        txtMedia_Discreta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMedia_DiscretaActionPerformed(evt);
+            }
+        });
 
         txtMediana_Discreta.setEditable(false);
         txtMediana_Discreta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -301,6 +323,10 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         DistG.setVisible(true);
     }//GEN-LAST:event_btnDistActionPerformed
 
+    private void txtMedia_DiscretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedia_DiscretaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMedia_DiscretaActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -334,18 +360,12 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtCoefVariacao_Discreta;

@@ -1,6 +1,7 @@
 
 package br.com.estatistica.view;
 
+import br.com.estatistica.controller.Tabela;
 import br.com.estatistica.controller.TabelaContinua;
 import br.com.estatistica.controller.TabelaDiscreta;
 import java.net.URL;
@@ -20,6 +21,8 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     ArrayList<Double> ListaQtdNumerosFPerc;//LISTA COM A F PERCENTUAL DE CADA NUMERO DIGITADO
     TabelaContinuaGUI TabelaContinuaG;
     TabelaDiscretaGUI TabelaDiscretaG;
+    TabelaDiscreta tabelaDiscreta = new TabelaDiscreta();
+    TabelaContinua tabelaContinua = new  TabelaContinua();
     
     int soma = 0;
     double somaperc = 0;
@@ -349,20 +352,22 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     private void btnProcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessarActionPerformed
         
         if(ComboVariavel.getSelectedIndex() == 2){
+           TabelaContinuaG.setTabela(tabelaContinua);
+           TabelaContinuaG.geraDados();
+           TabelaContinuaG.addLinhas(tabelaContinua.getClasses(), tabelaContinua.getPeriodo(), tabelaContinua.getLista_fi(), 
+                   tabelaContinua.getLista_F(), tabelaContinua.getLista_frPorcentual(), tabelaContinua.getLista_FPorcentual(), tabelaContinua.getLista_xi(), tabelaContinua.getLista_XiFi(), tabelaContinua.getLista_xixfi());
            TabelaContinuaG.setVisible(true);
-           //TabelaContinuaG.addLinhas(ListaDeNumeros);
        }
         else if(ComboVariavel.getSelectedIndex()== 1){
+            TabelaDiscretaG.setTabela(tabelaDiscreta);
+            TabelaDiscretaG.geraDados();
+            TabelaDiscretaG.addLinhas(tabelaDiscreta.getLista_xi(), tabelaDiscreta.getLista_fi(), tabelaDiscreta.getLista_F(), tabelaDiscreta.getLista_frPorcentual(), tabelaDiscreta.getLista_FPorcentual(), tabelaDiscreta.getLista_XiFi(), tabelaDiscreta.getLista_xixfi());
             TabelaDiscretaG.setVisible(true);
-            //TabelaDiscretaG.addLinhas(ListaDeNumerosXI, ListaQtdNumerosFI, ListaQtdNumerosFrPerc, ListaQtdNumerosF, ListaQtdNumerosFPerc);
        }
     }//GEN-LAST:event_btnProcessarActionPerformed
 
     private void BtnGerarFrenquenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGerarFrenquenciaActionPerformed
 
-        TabelaDiscreta tabelaDiscreta = new TabelaDiscreta();
-        TabelaContinua tabelaContinua = new  TabelaContinua();
-        
         if (ComboColeta.getSelectedIndex() == 0 || ComboVariavel.getSelectedIndex() == 0)
         {
             JOptionPane.showMessageDialog(null, "Por favor selecione o tipo de variável e coleta!", "Tipos de Coleta", 2);

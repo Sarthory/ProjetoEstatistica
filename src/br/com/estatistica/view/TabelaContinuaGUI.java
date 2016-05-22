@@ -4,13 +4,16 @@ import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import br.com.estatistica.controller.TabelaContinua;
+import java.util.List;
 
 /**
  *
  * @author Felipe Sartori
  */
 public class TabelaContinuaGUI extends javax.swing.JFrame {
-
+    TabelaContinua tabela;
+    
     DistGUI DistG;
     
     public TabelaContinuaGUI() {
@@ -22,7 +25,21 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         DistG = new DistGUI();
     }
     
-    public void addLinhas(ArrayList lista1, ArrayList lista2, ArrayList lista3, ArrayList lista4, ArrayList lista5){
+    public void setTabela(TabelaContinua tabela){
+        this.tabela = tabela;
+        
+    }
+    
+    public void geraDados(){
+        txtMedia_Continua.setText(Double.toString(tabela.getMedia()));
+        txtMediana_Continua.setText(Double.toString(tabela.getMediana()));
+        txtModa_Continua.setText((tabela.getModa()).toString());
+        txtCoefVariacao_Continua.setText(Double.toString(tabela.getCoeficienteVariacao()));
+        txtVariancia_Continua.setText(Double.toString(tabela.getVariancia()));
+        txtDesvioPadrao_Continua.setText(Double.toString(tabela.getDesvioPadrao()));
+    }
+    
+    public void addLinhas(List lista1, List lista2, List lista3, List lista4, List lista5, List lista6, List lista7, List lista8, List lista9){
         
         DefaultTableModel model = (DefaultTableModel) TabelaDiscreta.getModel();
         
@@ -33,6 +50,10 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
             listas.add(lista3.get(count));
             listas.add(lista4.get(count));
             listas.add(lista5.get(count));
+            listas.add(lista6.get(count));
+            listas.add(lista7.get(count));
+            listas.add(lista8.get(count));
+            listas.add(lista9.get(count));
             Object[] linha = listas.toArray();
             model.addRow(linha);
         }
@@ -87,7 +108,7 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Classes", "Intervalos", "xi", "fi", "F", "Fr%", "F%", "xi.fi", "Variância"
+                "Classes", "Períodos", "fi", "F", "Fr%", "F%", "xi", "xi.fi", "(xi-X)².fi"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -157,6 +178,11 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         txtMedia_Continua.setEditable(false);
         txtMedia_Continua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtMedia_Continua.setForeground(new java.awt.Color(0, 0, 0));
+        txtMedia_Continua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMedia_ContinuaActionPerformed(evt);
+            }
+        });
 
         txtModa_Continua.setEditable(false);
         txtModa_Continua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -299,6 +325,10 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     private void btnDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistActionPerformed
         DistG.setVisible(true);
     }//GEN-LAST:event_btnDistActionPerformed
+
+    private void txtMedia_ContinuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedia_ContinuaActionPerformed
+
+    }//GEN-LAST:event_txtMedia_ContinuaActionPerformed
 
     public static void main(String args[]) {
         try {

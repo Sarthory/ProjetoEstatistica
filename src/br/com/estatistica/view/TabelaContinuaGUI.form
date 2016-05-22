@@ -173,19 +173,39 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="9" rowCount="0">
                 <Column editable="false" title="Classes" type="java.lang.Object"/>
-                <Column editable="false" title="Intervalos" type="java.lang.Object"/>
-                <Column editable="false" title="xi" type="java.lang.Object"/>
+                <Column editable="false" title="Per&#xed;odos" type="java.lang.Object"/>
                 <Column editable="false" title="fi" type="java.lang.Object"/>
                 <Column editable="false" title="F" type="java.lang.Object"/>
                 <Column editable="false" title="Fr%" type="java.lang.Object"/>
                 <Column editable="false" title="F%" type="java.lang.Object"/>
+                <Column editable="false" title="xi" type="java.lang.Object"/>
                 <Column editable="false" title="xi.fi" type="java.lang.Object"/>
-                <Column editable="false" title="Vari&#xe2;ncia" type="java.lang.Object"/>
+                <Column editable="false" title="(xi-X)&#xb2;.fi" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -350,6 +370,9 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMedia_ContinuaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtModa_Continua">
       <Properties>
