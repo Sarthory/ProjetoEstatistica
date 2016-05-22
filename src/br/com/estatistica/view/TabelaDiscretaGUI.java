@@ -103,7 +103,14 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        TabelaDiscreta.setToolTipText("");
+        TabelaDiscreta.setToolTipText("Tabela Discreta");
+        TabelaDiscreta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TabelaDiscreta.setGridColor(new java.awt.Color(153, 153, 153));
+        TabelaDiscreta.setSelectionBackground(new java.awt.Color(153, 255, 153));
+        TabelaDiscreta.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        TabelaDiscreta.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        TabelaDiscreta.setShowHorizontalLines(true);
+        TabelaDiscreta.setShowVerticalLines(true);
         jScrollPane1.setViewportView(TabelaDiscreta);
 
         txtModa_Discreta.setEditable(false);
@@ -316,6 +323,10 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+        while (TabelaDiscreta.getModel().getRowCount() > 0)
+            {  
+                ((DefaultTableModel) TabelaDiscreta.getModel()).removeRow(0);  
+            } 
         this.dispose();
     }//GEN-LAST:event_btnFecharActionPerformed
 

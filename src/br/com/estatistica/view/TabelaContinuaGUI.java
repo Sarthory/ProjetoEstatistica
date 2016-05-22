@@ -41,7 +41,7 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     
     public void addLinhas(List lista1, List lista2, List lista3, List lista4, List lista5, List lista6, List lista7, List lista8, List lista9){
         
-        DefaultTableModel model = (DefaultTableModel) TabelaDiscreta.getModel();
+        DefaultTableModel model = (DefaultTableModel) TabelaContinua.getModel();
         
         for(int count = 0; count < lista2.size(); count++){
             ArrayList<Object> listas = new ArrayList<>();
@@ -66,7 +66,7 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
 
         btnFechar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabelaDiscreta = new javax.swing.JTable();
+        TabelaContinua = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         btnGerarGrafico = new javax.swing.JButton();
@@ -102,8 +102,8 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
             }
         });
 
-        TabelaDiscreta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        TabelaDiscreta.setModel(new javax.swing.table.DefaultTableModel(
+        TabelaContinua.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TabelaContinua.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -119,8 +119,14 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        TabelaDiscreta.setToolTipText("");
-        jScrollPane1.setViewportView(TabelaDiscreta);
+        TabelaContinua.setToolTipText("Tabela Contínua");
+        TabelaContinua.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TabelaContinua.setGridColor(new java.awt.Color(153, 153, 153));
+        TabelaContinua.setSelectionBackground(new java.awt.Color(153, 255, 153));
+        TabelaContinua.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        TabelaContinua.setShowHorizontalLines(true);
+        TabelaContinua.setShowVerticalLines(true);
+        jScrollPane1.setViewportView(TabelaContinua);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -319,6 +325,10 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+        while (TabelaContinua.getModel().getRowCount() > 0)
+            {  
+                ((DefaultTableModel) TabelaContinua.getModel()).removeRow(0);  
+            } 
         this.dispose();
     }//GEN-LAST:event_btnFecharActionPerformed
 
@@ -356,7 +366,7 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TabelaDiscreta;
+    private javax.swing.JTable TabelaContinua;
     private javax.swing.JButton btnDist;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnGerarGrafico;
