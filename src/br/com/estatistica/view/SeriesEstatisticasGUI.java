@@ -1,7 +1,6 @@
 
 package br.com.estatistica.view;
 
-import br.com.estatistica.controller.Tabela;
 import br.com.estatistica.controller.TabelaContinua;
 import br.com.estatistica.controller.TabelaDiscreta;
 import java.net.URL;
@@ -318,26 +317,20 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnContinuarActionPerformed
-       
-        //CHECA SE O NUMERO DIGITADO É MENOR OU IGUAL A 0
-        if((Double.parseDouble(txtEntrada.getText())) <= 0){
-            txtEntrada.setText("");
-        }
-        else{
-            i+= 1;
-            LblResult.setText(Integer.toString(i));
-            
-            //HABILITA BOTÃO ORDENAR
-            BtnGerarFrenquencia.setEnabled(true);
 
-            //ACRESCENTA NUMERO DIGITADO CASO VALIDO NA LISTA ListaDeNumeros
-            ListaDeNumeros.add(Double.parseDouble(txtEntrada.getText()));
+        i+= 1;
+        LblResult.setText(Integer.toString(i));
 
-           //ADICIONA AS LISTA NO PAINEL DE TEXTO
-           txtSaida.setText(ListaDeNumeros.toString() + "\n\n" + ListaDeNumerosXI.toString());
-           txtEntrada.setText("");
-           txtEntrada.requestFocus();
-       }
+        //HABILITA BOTÃO ORDENAR
+        BtnGerarFrenquencia.setEnabled(true);
+
+        //ACRESCENTA NUMERO DIGITADO CASO VALIDO NA LISTA ListaDeNumeros
+        ListaDeNumeros.add(Double.parseDouble(txtEntrada.getText()));
+
+        //ADICIONA AS LISTA NO PAINEL DE TEXTO
+        txtSaida.setText(ListaDeNumeros.toString() + "\n\n" + ListaDeNumerosXI.toString());
+        txtEntrada.setText("");
+        txtEntrada.requestFocus();
     }//GEN-LAST:event_BtnContinuarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -428,11 +421,6 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 "Desvio Padrão = " + tabelaContinua.getDesvioPadrao() + "\n" +
                 "Coeficiente de variação = " + tabelaContinua.getCoeficienteVariacao());
             }
-//            txtSaida.setText(txtSaida.getText() + "oi \n\n" + 
-//            ListaQtdNumerosFI.toString() + "\n\n FR% - " + 
-//            ListaQtdNumerosFrPerc.toString() + "\n\n F - " +
-//            ListaQtdNumerosF.toString() + "\n\n F% - " +
-//            ListaQtdNumerosFPerc.toString());
 
             btnProcessar.setEnabled(true);
             BtnGerarFrenquencia.setEnabled(false);
@@ -472,6 +460,28 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         ListaQtdNumerosFrPerc.clear();
         ComboColeta.setEnabled(true);
         ComboVariavel.setEnabled(true);
+        
+        tabelaDiscreta.getLista_Rol().clear();
+        tabelaDiscreta.getLista_xi().clear();
+        tabelaDiscreta.getLista_fi().clear();
+        tabelaDiscreta.getLista_frPorcentual().clear();
+        tabelaDiscreta.getLista_F().clear();
+        tabelaDiscreta.getLista_FPorcentual().clear();
+        tabelaDiscreta.getLista_XiFi().clear();
+        tabelaDiscreta.getLista_xixfi().clear();
+        tabelaDiscreta.getModa().clear();
+       
+        tabelaContinua.getLista_Rol().clear();
+        tabelaContinua.getClasses().clear();
+        tabelaContinua.getPeriodo().clear();
+        tabelaContinua.getLista_fi().clear();
+        tabelaContinua.getLista_frPorcentual().clear();
+        tabelaContinua.getLista_F().clear();
+        tabelaContinua.getLista_FPorcentual().clear();
+        tabelaContinua.getLista_xi().clear();
+        tabelaContinua.getLista_XiFi().clear();
+        tabelaContinua.getLista_xixfi().clear();
+        tabelaContinua.getModa().clear();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void ComboColetaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboColetaItemStateChanged
