@@ -25,6 +25,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         this.setIconImage(icon.getImage());
         
         DistG = new DistGUI();
+        chartDiscreta.setVisible(false);
     }
     
     public void geraDados(){
@@ -36,9 +37,9 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         txtDesvioPadrao_Discreta.setText(Double.toString(tabela.getDesvioPadrao()));
     }
     public void setGrafico(ChartPanel grafico){
-        jPanel4.setLayout(new java.awt.BorderLayout());
-        jPanel4.add(grafico, BorderLayout.CENTER);
-        jPanel4.validate();
+        chartDiscreta.setLayout(new java.awt.BorderLayout());
+        chartDiscreta.add(grafico, BorderLayout.CENTER);
+        chartDiscreta.validate();
         
     }
     
@@ -82,7 +83,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtDesvioPadrao_Discreta = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
+        chartDiscreta = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -127,11 +128,6 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         txtMedia_Discreta.setEditable(false);
         txtMedia_Discreta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtMedia_Discreta.setForeground(new java.awt.Color(0, 0, 0));
-        txtMedia_Discreta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMedia_DiscretaActionPerformed(evt);
-            }
-        });
 
         txtMediana_Discreta.setEditable(false);
         txtMediana_Discreta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -155,6 +151,11 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         btnGerarGrafico.setText("Gerar gráfico");
         btnGerarGrafico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnGerarGrafico.setIconTextGap(12);
+        btnGerarGrafico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerarGraficoActionPerformed(evt);
+            }
+        });
 
         txtVariancia_Discreta.setEditable(false);
         txtVariancia_Discreta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -176,17 +177,17 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         txtDesvioPadrao_Discreta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtDesvioPadrao_Discreta.setForeground(new java.awt.Color(0, 0, 0));
 
-        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel4.setName("jPanel4"); // NOI18N
+        chartDiscreta.setBackground(new java.awt.Color(153, 153, 153));
+        chartDiscreta.setName("chartDiscreta"); // NOI18N
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout chartDiscretaLayout = new javax.swing.GroupLayout(chartDiscreta);
+        chartDiscreta.setLayout(chartDiscretaLayout);
+        chartDiscretaLayout.setHorizontalGroup(
+            chartDiscretaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        chartDiscretaLayout.setVerticalGroup(
+            chartDiscretaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -263,7 +264,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
                             .addComponent(btnDist, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chartDiscreta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -309,7 +310,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(chartDiscreta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -333,9 +334,9 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         DistG.setVisible(true);
     }//GEN-LAST:event_btnDistActionPerformed
 
-    private void txtMedia_DiscretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedia_DiscretaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMedia_DiscretaActionPerformed
+    private void btnGerarGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarGraficoActionPerformed
+        chartDiscreta.setVisible(true);
+    }//GEN-LAST:event_btnGerarGraficoActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -367,6 +368,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnDist;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnGerarGrafico;
+    private javax.swing.JPanel chartDiscreta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -375,7 +377,6 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtCoefVariacao_Discreta;
     private javax.swing.JTextField txtDesvioPadrao_Discreta;

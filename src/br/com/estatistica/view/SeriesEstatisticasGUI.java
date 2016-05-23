@@ -9,7 +9,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import br.com.estatistica.util.LimiteDigitos;
 import java.util.List;
-import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
