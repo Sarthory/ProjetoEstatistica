@@ -9,6 +9,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import br.com.estatistica.util.LimiteDigitos;
 import java.util.List;
+import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     
@@ -348,13 +353,29 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
            TabelaContinuaG.setTabela(tabelaContinua);
            TabelaContinuaG.geraDados();
            TabelaContinuaG.addLinhas(tabelaContinua.getClasses(), tabelaContinua.getPeriodo(), tabelaContinua.getLista_fi(), 
-                   tabelaContinua.getLista_F(), tabelaContinua.getLista_frPorcentual(), tabelaContinua.getLista_FPorcentual(), tabelaContinua.getLista_xi(), tabelaContinua.getLista_XiFi(), tabelaContinua.getLista_xixfi());
+                   tabelaContinua.getLista_F(), tabelaContinua.getLista_frPorcentual(), tabelaContinua.getLista_FPorcentual(), 
+                   tabelaContinua.getLista_xi(), tabelaContinua.getLista_XiFi(), tabelaContinua.getLista_xixfi());
            TabelaContinuaG.setVisible(true);
        }
         else if(ComboVariavel.getSelectedIndex()== 1){
             TabelaDiscretaG.setTabela(tabelaDiscreta);
             TabelaDiscretaG.geraDados();
-            TabelaDiscretaG.addLinhas(tabelaDiscreta.getLista_xi(), tabelaDiscreta.getLista_fi(), tabelaDiscreta.getLista_F(), tabelaDiscreta.getLista_frPorcentual(), tabelaDiscreta.getLista_FPorcentual(), tabelaDiscreta.getLista_XiFi(), tabelaDiscreta.getLista_xixfi());
+            TabelaDiscretaG.addLinhas(tabelaDiscreta.getLista_xi(), tabelaDiscreta.getLista_fi(), 
+                    tabelaDiscreta.getLista_F(), tabelaDiscreta.getLista_frPorcentual(), 
+                    tabelaDiscreta.getLista_FPorcentual(), tabelaDiscreta.getLista_XiFi(), tabelaDiscreta.getLista_xixfi());
+            
+            DefaultCategoryDataset pieDataSet = new DefaultCategoryDataset();
+        
+            for(int i = 0; i < tabelaDiscreta.getLista_xi().size(); i++){
+                pieDataSet.addValue((Double)tabelaDiscreta.getLista_frPorcentual().get(i), (Double)tabelaDiscreta.getLista_xi().get(i), "Em Pocentagem (%)"/*(i+1) + "º"*/);
+            }
+
+            JFreeChart grafico = ChartFactory.createBarChart3D("Variáveis Discretas", null, null, pieDataSet);
+//            JFreeChart grafico = ChartFactory.createXYBarChart("Variáveis Discretas", null, null, null,);
+            ChartPanel cp = new ChartPanel(grafico);
+            TabelaDiscretaG.setGrafico(cp);
+            
+            
             TabelaDiscretaG.setVisible(true);
        }
     }//GEN-LAST:event_btnProcessarActionPerformed

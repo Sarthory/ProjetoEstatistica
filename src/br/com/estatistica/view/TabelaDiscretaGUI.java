@@ -1,11 +1,13 @@
 package br.com.estatistica.view;
 
 import br.com.estatistica.controller.TabelaDiscreta;
+import java.awt.BorderLayout;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartPanel;
 
 /**
  *
@@ -32,6 +34,12 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         txtCoefVariacao_Discreta.setText(Double.toString(tabela.getCoeficienteVariacao()));
         txtVariancia_Discreta.setText(Double.toString(tabela.getVariancia()));
         txtDesvioPadrao_Discreta.setText(Double.toString(tabela.getDesvioPadrao()));
+    }
+    public void setGrafico(ChartPanel grafico){
+        jPanel4.setLayout(new java.awt.BorderLayout());
+        jPanel4.add(grafico, BorderLayout.CENTER);
+        jPanel4.validate();
+        
     }
     
     public void setTabela(TabelaDiscreta tabela){
@@ -75,7 +83,6 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtDesvioPadrao_Discreta = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jLabel36 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -170,25 +177,17 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         txtDesvioPadrao_Discreta.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel36.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel36.setText("Gráfico");
+        jPanel4.setName("jPanel4"); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(295, Short.MAX_VALUE)
-                .addComponent(jLabel36)
-                .addGap(266, 266, 266))
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel36)
-                .addGap(157, 157, 157))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -371,7 +370,6 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
