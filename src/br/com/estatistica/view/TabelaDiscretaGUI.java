@@ -28,7 +28,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
     public void geraDados(){
         txtMedia_Discreta.setText(Double.toString(tabela.getMedia()));
         txtMediana_Discreta.setText(Double.toString(tabela.getMediana()));
-        txtModa_Discreta.setText((tabela.getModa()).toString());
+        txtModa_Discreta.setText((((tabela.getModa()).toString()).replace("[", "")).replace("]", ""));
         txtCoefVariacao_Discreta.setText(Double.toString(tabela.getCoeficienteVariacao()));
         txtVariancia_Discreta.setText(Double.toString(tabela.getVariancia()));
         txtDesvioPadrao_Discreta.setText(Double.toString(tabela.getDesvioPadrao()));
@@ -46,8 +46,8 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
             listas.add(lista1.get(count));
             listas.add(lista2.get(count));
             listas.add(lista3.get(count));
-            listas.add(lista4.get(count));
-            listas.add(lista5.get(count));
+            listas.add(lista4.get(count) + "%");
+            listas.add(lista5.get(count) + "%");
             listas.add(lista6.get(count));
             listas.add(lista7.get(count));
             Object[] linha = listas.toArray();

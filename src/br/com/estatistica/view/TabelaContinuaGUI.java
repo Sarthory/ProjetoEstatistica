@@ -33,7 +33,7 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     public void geraDados(){
         txtMedia_Continua.setText(Double.toString(tabela.getMedia()));
         txtMediana_Continua.setText(Double.toString(tabela.getMediana()));
-        txtModa_Continua.setText((tabela.getModa()).toString());
+        txtModa_Continua.setText((((tabela.getModa()).toString()).replace("[", "")).replace("]", ""));
         txtCoefVariacao_Continua.setText(Double.toString(tabela.getCoeficienteVariacao()));
         txtVariancia_Continua.setText(Double.toString(tabela.getVariancia()));
         txtDesvioPadrao_Continua.setText(Double.toString(tabela.getDesvioPadrao()));
@@ -49,8 +49,8 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
             listas.add(lista2.get(count));
             listas.add(lista3.get(count));
             listas.add(lista4.get(count));
-            listas.add(lista5.get(count));
-            listas.add(lista6.get(count));
+            listas.add(lista5.get(count) + "%");
+            listas.add(lista6.get(count) + "%");
             listas.add(lista7.get(count));
             listas.add(lista8.get(count));
             listas.add(lista9.get(count));

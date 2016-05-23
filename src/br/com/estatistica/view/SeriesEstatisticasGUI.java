@@ -387,7 +387,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 "xi*fi = " + tabelaDiscreta.getLista_XiFi() + "\n" +
                 "Xi - media * fi = " + tabelaDiscreta.getLista_xixfi() + "\n" +
                 "Média = " + tabelaDiscreta.getMedia() + "\n" +
-                "Moda = " + tabelaDiscreta.getModa() + "\n" +
+                "Moda = " + (((tabelaDiscreta.getModa()).toString()).replace("[", "")).replace("]", "") + "\n" +
                 "Mediana = " + tabelaDiscreta.getMediana() + "\n" +                
                 "Variância = " + tabelaDiscreta.getVariancia() + "\n" +
                 "Desvio Padrão = " + tabelaDiscreta.getDesvioPadrao() + "\n" +
@@ -415,7 +415,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 "xi*fi = " + tabelaContinua.getLista_XiFi() + "\n" +
                 "Xi - media * fi = " + tabelaContinua.getLista_xixfi() + "\n" +
                 "Média = " + tabelaContinua.getMedia() + "\n" +
-                "Moda = " + tabelaContinua.getModa() + "\n" +
+                "Moda = " + (((tabelaContinua.getModa()).toString()).replace("[", "")).replace("]", "") + "\n" +
                 "Mediana = " + tabelaContinua.getMediana() + "\n" +                
                 "Variância = " + tabelaContinua.getVariancia() + "\n" +
                 "Desvio Padrão = " + tabelaContinua.getDesvioPadrao() + "\n" +
