@@ -378,15 +378,15 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 tabelaDiscreta.geraDados();
                 
                 txtSaida.setText(                        
-                "Rol = " + tabelaDiscreta.getLista_Rol().toString() + "\n" +
-                "xi = " + tabelaDiscreta.getLista_xi() + "\n" +
-                "fi = " + tabelaDiscreta.getLista_fi() + "\n" +
-                "fr% = " + tabelaDiscreta.getLista_frPorcentual() + "\n" +
-                "F = " + tabelaDiscreta.getLista_F() + "\n" +
-                "F% = " + tabelaDiscreta.getLista_FPorcentual() + "\n" +
-                "xi*fi = " + tabelaDiscreta.getLista_XiFi() + "\n" +
-                "Xi - media * fi = " + tabelaDiscreta.getLista_xixfi() + "\n" +
-                "Média = " + tabelaDiscreta.getMedia() + "\n" +
+                "Rol = " + (((tabelaDiscreta.getLista_Rol()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "xi = " + (((tabelaDiscreta.getLista_xi()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "fi = " + (((tabelaDiscreta.getLista_fi()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "fr% = " + (((tabelaDiscreta.getLista_frPorcentual()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "F = " + (((tabelaDiscreta.getLista_F()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "F% = " + (((tabelaDiscreta.getLista_FPorcentual()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "xi*fi = " + (((tabelaDiscreta.getLista_XiFi()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "Xi - media * fi = " + (((tabelaDiscreta.getLista_xixfi()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "Média = " + (((tabelaDiscreta.getMedia()).toString()).replace("[", "")).replace("]", "") + "\n" +
                 "Moda = " + (((tabelaDiscreta.getModa()).toString()).replace("[", "")).replace("]", "") + "\n" +
                 "Mediana = " + tabelaDiscreta.getMediana() + "\n" +                
                 "Variância = " + tabelaDiscreta.getVariancia() + "\n" +
@@ -404,17 +404,17 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 tabelaContinua.geraDados();
                 
                 txtSaida.setText(                        
-                "Rol = " + tabelaContinua.getLista_Rol().toString() + "\n" +
-                "classes = " + tabelaContinua.getClasses() + "\n" +
-                "periodos = " + tabelaContinua.getPeriodo() + "\n" +
-                "fi = " + tabelaContinua.getLista_fi() + "\n" +
-                "fr% = " + tabelaContinua.getLista_frPorcentual() + "\n" +
-                "F = " + tabelaContinua.getLista_F() + "\n" +
-                "F% = " + tabelaContinua.getLista_FPorcentual() + "\n" +
-                "xi = " + tabelaContinua.getLista_xi() + "\n" +
-                "xi*fi = " + tabelaContinua.getLista_XiFi() + "\n" +
-                "Xi - media * fi = " + tabelaContinua.getLista_xixfi() + "\n" +
-                "Média = " + tabelaContinua.getMedia() + "\n" +
+                "Rol = " + (((tabelaContinua.getLista_Rol()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "classes = " + (((tabelaContinua.getClasses()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "periodos = " + (((tabelaContinua.getPeriodo()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "fi = " + (((tabelaContinua.getLista_fi()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "fr% = " + (((tabelaContinua.getLista_frPorcentual()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "F = " + (((tabelaContinua.getLista_F()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "F% = " + (((tabelaContinua.getLista_FPorcentual()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "xi = " + (((tabelaContinua.getLista_xi()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "xi*fi = " + (((tabelaContinua.getLista_XiFi()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "Xi - media * fi = " + (((tabelaContinua.getLista_xixfi()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "Média = " + (((tabelaContinua.getMedia()).toString()).replace("[", "")).replace("]", "") + "\n" +
                 "Moda = " + (((tabelaContinua.getModa()).toString()).replace("[", "")).replace("]", "") + "\n" +
                 "Mediana = " + tabelaContinua.getMediana() + "\n" +                
                 "Variância = " + tabelaContinua.getVariancia() + "\n" +
