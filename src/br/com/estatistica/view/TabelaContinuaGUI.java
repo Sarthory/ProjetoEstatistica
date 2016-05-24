@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import br.com.estatistica.controller.TabelaContinua;
+import java.awt.BorderLayout;
 import java.util.List;
+import org.jfree.chart.ChartPanel;
 
 /**
  *
@@ -23,10 +25,18 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         this.setIconImage(icon.getImage());
         
         DistG = new DistGUI();
+        chartContinua.setVisible(false);
     }
     
     public void setTabela(TabelaContinua tabela){
         this.tabela = tabela;
+        
+    }
+    
+    public void setGrafico(ChartPanel grafico){
+        chartContinua.setLayout(new java.awt.BorderLayout());
+        chartContinua.add(grafico, BorderLayout.CENTER);
+        chartContinua.validate();
         
     }
     
@@ -67,8 +77,7 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         btnFechar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaContinua = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        chartContinua = new javax.swing.JPanel();
         btnGerarGrafico = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -128,26 +137,18 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         TabelaContinua.setShowVerticalLines(true);
         jScrollPane1.setViewportView(TabelaContinua);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        chartContinua.setBackground(new java.awt.Color(153, 153, 153));
+        chartContinua.setName("chartContinua"); // NOI18N
 
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Gráfico");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(295, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(266, 266, 266))
+        javax.swing.GroupLayout chartContinuaLayout = new javax.swing.GroupLayout(chartContinua);
+        chartContinua.setLayout(chartContinuaLayout);
+        chartContinuaLayout.setHorizontalGroup(
+            chartContinuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(160, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(156, 156, 156))
+        chartContinuaLayout.setVerticalGroup(
+            chartContinuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 332, Short.MAX_VALUE)
         );
 
         btnGerarGrafico.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -156,6 +157,11 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
         btnGerarGrafico.setText("Gerar gráfico");
         btnGerarGrafico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnGerarGrafico.setIconTextGap(12);
+        btnGerarGrafico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerarGraficoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -267,7 +273,7 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
                                 .addComponent(jLabel9)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chartContinua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -312,7 +318,7 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
                         .addComponent(btnGerarGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(chartContinua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnFechar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
@@ -339,6 +345,10 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     private void txtMedia_ContinuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedia_ContinuaActionPerformed
 
     }//GEN-LAST:event_txtMedia_ContinuaActionPerformed
+
+    private void btnGerarGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarGraficoActionPerformed
+        chartContinua.setVisible(true);
+    }//GEN-LAST:event_btnGerarGraficoActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -370,16 +380,15 @@ public class TabelaContinuaGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnDist;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnGerarGrafico;
+    private javax.swing.JPanel chartContinua;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtCoefVariacao_Continua;
     private javax.swing.JTextField txtDesvioPadrao_Continua;

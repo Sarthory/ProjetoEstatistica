@@ -354,6 +354,19 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
            TabelaContinuaG.addLinhas(tabelaContinua.getClasses(), tabelaContinua.getPeriodo(), tabelaContinua.getLista_fi(), 
                    tabelaContinua.getLista_F(), tabelaContinua.getLista_frPorcentual(), tabelaContinua.getLista_FPorcentual(), 
                    tabelaContinua.getLista_xi(), tabelaContinua.getLista_XiFi(), tabelaContinua.getLista_xixfi());
+           
+           DefaultCategoryDataset pieDataSet = new DefaultCategoryDataset();
+           
+            for(int i = 0; i < tabelaContinua.getLista_xi().size(); i++){
+                pieDataSet.addValue((Double)tabelaContinua.getLista_frPorcentual().get(i), (Double)tabelaContinua.getLista_xi().get(i), "Em Pocentagem (%)"/*(i+1) + "º"*/);
+            }
+
+            JFreeChart grafico = ChartFactory.createBarChart("Variáveis Continuas", null, null, pieDataSet);
+//            JFreeChart grafico = ChartFactory.createXYBarChart("Variáveis Discretas", null, null, null,);
+            ChartPanel cp = new ChartPanel(grafico);
+            
+            TabelaContinuaG.setGrafico(cp);
+           
            TabelaContinuaG.setVisible(true);
        }
         else if(ComboVariavel.getSelectedIndex()== 1){
@@ -368,8 +381,8 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
             for(int i = 0; i < tabelaDiscreta.getLista_xi().size(); i++){
                 pieDataSet.addValue((Double)tabelaDiscreta.getLista_frPorcentual().get(i), (Double)tabelaDiscreta.getLista_xi().get(i), "Em Pocentagem (%)"/*(i+1) + "º"*/);
             }
-
-            JFreeChart grafico = ChartFactory.createBarChart3D("Variáveis Discretas", null, null, pieDataSet);
+            
+            JFreeChart grafico = ChartFactory.createBarChart("Variáveis Discretas", null, null, pieDataSet);
 //            JFreeChart grafico = ChartFactory.createXYBarChart("Variáveis Discretas", null, null, null,);
             ChartPanel cp = new ChartPanel(grafico);
             TabelaDiscretaG.setGrafico(cp);
