@@ -63,7 +63,6 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         txtEntrada = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtSaida = new javax.swing.JTextPane();
-        jLabel2 = new javax.swing.JLabel();
         BtnGerarFrenquencia = new javax.swing.JButton();
         btnProcessar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -134,10 +133,6 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
         txtSaida.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtSaida.setName("txtSaida"); // NOI18N
         jScrollPane1.setViewportView(txtSaida);
-
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Rol:");
 
         BtnGerarFrenquencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnGerarFrenquencia.setForeground(new java.awt.Color(0, 0, 0));
@@ -245,39 +240,30 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(ComboVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
+                                .addComponent(txtEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(76, 76, 76)
+                                .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel3))
-                                .addGap(103, 103, 103))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(213, 213, 213))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(txtEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(76, 76, 76)))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
+                                    .addComponent(ComboColeta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(LblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(ComboColeta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(ComboVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(LblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -291,32 +277,26 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComboVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboColeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel6)
-                            .addComponent(LblResult))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnLimpar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 36, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(LblResult)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnGerarFrenquencia, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(227, 227, 227))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(616, 469));
+        setSize(new java.awt.Dimension(616, 405));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -361,8 +341,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 pieDataSet.addValue((Double)tabelaContinua.getLista_frPorcentual().get(i), (Double)tabelaContinua.getLista_xi().get(i), "Em Pocentagem (%)"/*(i+1) + "º"*/);
             }
 
-            JFreeChart grafico = ChartFactory.createBarChart("Variáveis Continuas", null, null, pieDataSet);
-//            JFreeChart grafico = ChartFactory.createXYBarChart("Variáveis Discretas", null, null, null,);
+            JFreeChart grafico = ChartFactory.createBarChart3D("Variáveis Continuas", null, null, pieDataSet);
             ChartPanel cp = new ChartPanel(grafico);
             
             TabelaContinuaG.setGrafico(cp);
@@ -382,8 +361,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 pieDataSet.addValue((Double)tabelaDiscreta.getLista_frPorcentual().get(i), (Double)tabelaDiscreta.getLista_xi().get(i), "Em Pocentagem (%)"/*(i+1) + "º"*/);
             }
             
-            JFreeChart grafico = ChartFactory.createBarChart("Variáveis Discretas", null, null, pieDataSet);
-//            JFreeChart grafico = ChartFactory.createXYBarChart("Variáveis Discretas", null, null, null,);
+            JFreeChart grafico = ChartFactory.createBarChart3D("Variáveis Discretas", null, null, pieDataSet);
             ChartPanel cp = new ChartPanel(grafico);
             TabelaDiscretaG.setGrafico(cp);
             
@@ -411,7 +389,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 tabelaDiscreta.geraDados();
                 
                 txtSaida.setText(                        
-                "Rol = " + (((tabelaDiscreta.getLista_Rol()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "Rol: \n\n" + (((tabelaDiscreta.getLista_Rol()).toString()).replace("[", "")).replace("]", "") + "\n\n"/* +
                 "xi = " + (((tabelaDiscreta.getLista_xi()).toString()).replace("[", "")).replace("]", "") + "\n" +
                 "fi = " + (((tabelaDiscreta.getLista_fi()).toString()).replace("[", "")).replace("]", "") + "\n" +
                 "fr% = " + (((tabelaDiscreta.getLista_frPorcentual()).toString()).replace("[", "")).replace("]", "") + "\n" +
@@ -424,7 +402,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 "Mediana = " + tabelaDiscreta.getMediana() + "\n" +                
                 "Variância = " + tabelaDiscreta.getVariancia() + "\n" +
                 "Desvio Padrão = " + tabelaDiscreta.getDesvioPadrao() + "\n" +
-                "Coeficiente de variação = " + tabelaDiscreta.getCoeficienteVariacao());
+                "Coeficiente de variação = " + tabelaDiscreta.getCoeficienteVariacao()*/);
                 
             }else{
                 if((ComboColeta.getSelectedItem()).equals("Amostra")){
@@ -437,7 +415,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 tabelaContinua.geraDados();
                 
                 txtSaida.setText(                        
-                "Rol = " + (((tabelaContinua.getLista_Rol()).toString()).replace("[", "")).replace("]", "") + "\n" +
+                "Rol: \n\n " + (((tabelaContinua.getLista_Rol()).toString()).replace("[", "")).replace("]", "") + "\n\n"/* +
                 "classes = " + (((tabelaContinua.getClasses()).toString()).replace("[", "")).replace("]", "") + "\n" +
                 "periodos = " + (((tabelaContinua.getPeriodo()).toString()).replace("[", "")).replace("]", "") + "\n" +
                 "fi = " + (((tabelaContinua.getLista_fi()).toString()).replace("[", "")).replace("]", "") + "\n" +
@@ -452,7 +430,7 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
                 "Mediana = " + tabelaContinua.getMediana() + "\n" +                
                 "Variância = " + tabelaContinua.getVariancia() + "\n" +
                 "Desvio Padrão = " + tabelaContinua.getDesvioPadrao() + "\n" +
-                "Coeficiente de variação = " + tabelaContinua.getCoeficienteVariacao());
+                "Coeficiente de variação = " + tabelaContinua.getCoeficienteVariacao()*/);
             }
 
             btnProcessar.setEnabled(true);
@@ -578,7 +556,6 @@ public class SeriesEstatisticasGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.ButtonGroup buttonGroup7;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

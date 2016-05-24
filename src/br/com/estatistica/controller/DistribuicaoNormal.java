@@ -2,13 +2,13 @@ package br.com.estatistica.controller;
 
 /**
  *
- * @author Lander
+ * @author Felipe
  */
 public class DistribuicaoNormal {
 
-    public double calcular(String tipo, double media, double desvio, double valor1, double valor2) {
+    public double calcular(int pos, double media, double desvio, double valor1, double valor2) {
+        
         double z1 = (valor1 - media) / desvio;
-        double z2 = (valor2 - media) / desvio;
         
         if (z1 < 0) {
             z1 *= -1;
@@ -18,35 +18,40 @@ public class DistribuicaoNormal {
         }
         
         double probabilidade, probabilidade2 = 0;
+        double intZ1 = ((int)z1 * 100);
         
-        probabilidade = pesquisarNumero(Integer.getInteger(String.valueOf(z1), 100));
+        probabilidade = pesquisarNumero(intZ1);
 
         if (valor2 != 0) {
+            
+            double z2 = (valor2 - media) / desvio;
+            
             if (z2 < 0) {
-            z2 *= -1;
+                z2 *= -1;
             } 
             else {
                 z2 *= 1;
             }
             
-            probabilidade2 = pesquisarNumero(Integer.getInteger(String.valueOf(z2), 100));
+            double intZ2 = ((int)z2 * 100);
+            probabilidade2 = pesquisarNumero(intZ2);
         }
         
-        switch (tipo) {
-            case "menor":
-                probabilidade = (probabilidade + 0.5) * 100;
+        double result = 0;
+        
+        switch (pos) {
+            case 1:
+                result = (probabilidade + probabilidade2) * 100;
                 break;
-            case "maior":
-                probabilidade = (0.5 - probabilidade) * 100;
+            case 2:
+                result = (0.5 - probabilidade) * 100;
                 break;
-            case "entre":
-                probabilidade = (probabilidade + probabilidade2) * 100;
-                break;
-            case "depois":
-                probabilidade = (1 - (probabilidade + probabilidade2)) * 100;
+            case 3:
+                result = (probabilidade + 0.5) * 100;
                 break;
         }
-        return probabilidade;
+        
+        return result;
     }
 
     public double pesquisarNumero(double valor) {

@@ -893,39 +893,31 @@ public class DistGUI extends javax.swing.JFrame {
 
     private void btnCalc_DistNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalc_DistNormalActionPerformed
         
-        String posicao = null;
+        int posicao = 0;
         double media = Double.parseDouble(txtMedia_distNormal.getText());
         double dp = Double.parseDouble(txtDesvioPadr_DistNormal.getText());
         double valor1 = 0;
         double valor2 = 0;
         
-        if (comboPosicao_DistNormal.getSelectedIndex() == 0)
+        if (comboPosicao_DistNormal.getSelectedIndex() == 1)
         {
-            JOptionPane.showMessageDialog(null, "Por favor selecione a posição da variável!", "Posição", 2);
+            posicao = 1;
+            valor1 = Double.parseDouble(txtValor1_DistNormal.getText());
+            valor2 = Double.parseDouble(txtValor2_DistNormal.getText());
         }
-        else
+
+        if (comboPosicao_DistNormal.getSelectedIndex() == 2)
         {
-            if (comboPosicao_DistNormal.getSelectedIndex() == 1)
-            {
-                posicao = "entre";
-                valor1 = Double.parseDouble(txtValor1_DistNormal.getText());
-                valor2 = Double.parseDouble(txtValor2_DistNormal.getText());
-            }
-                
-            if (comboPosicao_DistNormal.getSelectedIndex() == 2)
-            {
-                posicao = "maior";
-                valor1 = Double.parseDouble(txtValor1_DistNormal.getText());
-                valor2 = 0;
-            }
-                
-            if (comboPosicao_DistNormal.getSelectedIndex() == 3)
-            {
-                posicao = "menor";
-                valor1 = Double.parseDouble(txtValor1_DistNormal.getText());
-                valor2 = 0;
-            }
-               
+            posicao = 2;
+            valor1 = Double.parseDouble(txtValor1_DistNormal.getText());
+            valor2 = 0;
+        }
+
+        if (comboPosicao_DistNormal.getSelectedIndex() == 3)
+        {
+            posicao = 3;
+            valor1 = Double.parseDouble(txtValor1_DistNormal.getText());
+            valor2 = 0;
         }
         
         double probabilidade = DistNormal.calcular(posicao, media, dp, valor1, valor2);

@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartPanel;
@@ -25,6 +27,8 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         this.setIconImage(icon.getImage());
         
         DistG = new DistGUI();
+        chartDiscreta.removeAll();
+        chartDiscreta.revalidate();
         chartDiscreta.setVisible(false);
     }
     
@@ -40,7 +44,6 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         chartDiscreta.setLayout(new java.awt.BorderLayout());
         chartDiscreta.add(grafico, BorderLayout.CENTER);
         chartDiscreta.validate();
-        
     }
     
     public void setTabela(TabelaDiscreta tabela){
@@ -55,8 +58,8 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
             listas.add(lista1.get(count));
             listas.add(lista2.get(count));
             listas.add(lista3.get(count));
-            listas.add(lista4.get(count) + "%");
-            listas.add(lista5.get(count) + "%");
+            listas.add(lista4.get(count) + " %");
+            listas.add(lista5.get(count) + " %");
             listas.add(lista6.get(count));
             listas.add(lista7.get(count));
             Object[] linha = listas.toArray();
@@ -83,7 +86,8 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtDesvioPadrao_Discreta = new javax.swing.JTextField();
-        chartDiscreta = new javax.swing.JPanel();
+        chartPanel = new javax.swing.JPanel();
+        chartDiscreta = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -177,18 +181,18 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
         txtDesvioPadrao_Discreta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtDesvioPadrao_Discreta.setForeground(new java.awt.Color(0, 0, 0));
 
-        chartDiscreta.setBackground(new java.awt.Color(153, 153, 153));
-        chartDiscreta.setName("chartDiscreta"); // NOI18N
+        chartPanel.setBackground(new java.awt.Color(153, 153, 153));
+        chartPanel.setName("chartPanel"); // NOI18N
 
-        javax.swing.GroupLayout chartDiscretaLayout = new javax.swing.GroupLayout(chartDiscreta);
-        chartDiscreta.setLayout(chartDiscretaLayout);
-        chartDiscretaLayout.setHorizontalGroup(
-            chartDiscretaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+        javax.swing.GroupLayout chartPanelLayout = new javax.swing.GroupLayout(chartPanel);
+        chartPanel.setLayout(chartPanelLayout);
+        chartPanelLayout.setHorizontalGroup(
+            chartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(chartDiscreta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        chartDiscretaLayout.setVerticalGroup(
-            chartDiscretaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        chartPanelLayout.setVerticalGroup(
+            chartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(chartDiscreta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -234,7 +238,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -264,7 +268,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
                             .addComponent(btnDist, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chartDiscreta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -310,7 +314,7 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chartDiscreta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(chartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,6 +331,9 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
             {  
                 ((DefaultTableModel) TabelaDiscreta.getModel()).removeRow(0);  
             } 
+        chartDiscreta.removeAll();
+        chartDiscreta.revalidate();
+        chartDiscreta.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btnFecharActionPerformed
 
@@ -335,6 +342,11 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDistActionPerformed
 
     private void btnGerarGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarGraficoActionPerformed
+        long i = 0;
+        while (i < 999999999)
+        {
+            i++;
+        }
         chartDiscreta.setVisible(true);
     }//GEN-LAST:event_btnGerarGraficoActionPerformed
 
@@ -368,7 +380,8 @@ public class TabelaDiscretaGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnDist;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnGerarGrafico;
-    private javax.swing.JPanel chartDiscreta;
+    private javax.swing.JLabel chartDiscreta;
+    private javax.swing.JPanel chartPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
