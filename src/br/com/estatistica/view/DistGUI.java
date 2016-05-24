@@ -1,14 +1,18 @@
 package br.com.estatistica.view;
 
+import br.com.estatistica.controller.DistribuicaoNormal;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import br.com.estatistica.util.LimiteDigitos;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Felipe
  */
 public class DistGUI extends javax.swing.JFrame {
+    
+    DistribuicaoNormal DistNormal;
 
     public DistGUI() {
         initComponents();
@@ -17,6 +21,7 @@ public class DistGUI extends javax.swing.JFrame {
         this.setIconImage(icon.getImage());
         this.setLocationRelativeTo(null);
         limitaDigitos();
+        DistNormal = new DistribuicaoNormal();
     }
 
     @SuppressWarnings("unchecked")
@@ -146,6 +151,11 @@ public class DistGUI extends javax.swing.JFrame {
         btnCalc_DistNormal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnCalc_DistNormal.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnCalc_DistNormal.setIconTextGap(10);
+        btnCalc_DistNormal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalc_DistNormalActionPerformed(evt);
+            }
+        });
 
         btnLimpar_DistNormal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnLimpar_DistNormal.setForeground(new java.awt.Color(0, 0, 0));
@@ -880,6 +890,49 @@ public class DistGUI extends javax.swing.JFrame {
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnFecharActionPerformed
+
+    private void btnCalc_DistNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalc_DistNormalActionPerformed
+        
+        String posicao = null;
+        double media = Double.parseDouble(txtMedia_distNormal.getText());
+        double dp = Double.parseDouble(txtDesvioPadr_DistNormal.getText());
+        double valor1 = 0;
+        double valor2 = 0;
+        
+        if (comboPosicao_DistNormal.getSelectedIndex() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Por favor selecione a posição da variável!", "Posição", 2);
+        }
+        else
+        {
+            if (comboPosicao_DistNormal.getSelectedIndex() == 1)
+            {
+                posicao = "entre";
+                valor1 = Double.parseDouble(txtValor1_DistNormal.getText());
+                valor2 = Double.parseDouble(txtValor2_DistNormal.getText());
+            }
+                
+            if (comboPosicao_DistNormal.getSelectedIndex() == 2)
+            {
+                posicao = "maior";
+                valor1 = Double.parseDouble(txtValor1_DistNormal.getText());
+                valor2 = 0;
+            }
+                
+            if (comboPosicao_DistNormal.getSelectedIndex() == 3)
+            {
+                posicao = "menor";
+                valor1 = Double.parseDouble(txtValor1_DistNormal.getText());
+                valor2 = 0;
+            }
+               
+        }
+        
+        double probabilidade = DistNormal.calcular(posicao, media, dp, valor1, valor2);
+        
+        lblProbabilidade_DistNormal.setText(Double.toString(probabilidade) + " %");
+        
+    }//GEN-LAST:event_btnCalc_DistNormalActionPerformed
 
     /**
      * @param args the command line arguments
